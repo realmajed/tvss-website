@@ -12,6 +12,7 @@ This file goes with the finished website. It explains how to get the site into G
 |---|---|---|
 | `tvss-website-single-file.html` | The whole website in one file (about 1.4 MB). Styles, scripts, photos and 3D models are built in. Fonts and the 3D viewer library load from the internet. | **Pasting into Gemini Canvas** (section 3), or opening on any computer by double-clicking. |
 | `website/` | The same site as ordinary web files: `index.html`, `css/styles.css`, `js/main.js`, `img/` (10 photos as WebP) and `models/kits.js` (the three 3D kit models). | Hosting the site anywhere (GitHub Pages, Netlify), or editing it in VS Code. Open `website/index.html` to view it. |
+| `build_single_file.py` | Rebuilds the single file from `website/` (section 13). | Run it after any edit in `website/`. |
 | `HANDOFF.md` | This file. | Instructions, to-do list, and build notes. |
 
 Nothing in the site is a build note. Unfinished items are marked in orange italics or dashed boxes on the site, and every one has a `data-todo` attribute in the code (section 4).
@@ -57,9 +58,8 @@ These items need information only the team has. Each is marked on the site in or
 | Prototype | **Table 7 results:** the Result and Change made columns for all five tests, then two or three sentences under **Results and changes**. Without results, the prototype counts as a model rather than a tested prototype. | `data-todo="test-results"` |
 | Prototype | **Figure 11 note:** which tool made the concept renders. | `data-todo="figure-11-tool"` |
 | Detailed design | **Figure 9 note:** the source of the Garmin product photo (page title, URL, "Copyright Garmin"), or swap in your own photo. | `data-todo="figure-9-source"` |
-| Cost analysis | **Table 11:** replacement and Ranger-time estimates for Years 1–3, plus the assumption behind each in the table note. | `data-todo="table-11"` and `data-todo="table-11-assumptions"` |
 | Team | **Table 13:** each member's website contribution. List contributing members only; a non-contributing member must not be listed. | `data-todo="team-contributions"` |
-| Appendices | **A** group charter link, **B** meeting minutes, **C** full test results, **D** cost workings (the $420 allowance and the $175 accessory bundle, with a source per price). | `data-todo="appendix-a"` … `appendix-d` |
+| Appendices | **A** group charter link, **B** meeting minutes, **C** full test results, **D** cost workings (the $420 materials, setup and delivery allowance and the $175 accessory bundle, with a source per price). | `data-todo="appendix-a"` … `appendix-d` |
 | Appendices | **E** the AI-use statement, with reasons for using AI and screenshots of prompts and outputs. The rubric only gives full marks for the statement when it includes reasons and screenshots. | `data-todo="appendix-e"` |
 
 When you replace a placeholder, delete its `class="todo"` or `class="ph"` and its `data-todo="…"` too, so it stops showing in orange or in a dashed box. For example:
@@ -81,6 +81,7 @@ These items are filled in on the site, but the team needs to agree them.
 - **Table 4 decision-matrix scores** (Design selection). Agree them together. If a score changes, recompute the weighted total (sum of weight × score) and update the sentence under the table.
 - **Figure 12 timeline dates** (Implementation plan). Check they match what was presented.
 - **Tutor's name** on the Home page ("Pranavi Gangapuri").
+- **Training and Ranger-time costs** (Tables 10 and 11, Figure 13). These were added after the tutor asked for Ranger training to be costed. They use a $45 per hour planning rate (above the $26.44 minimum wage, Fair Work Ombudsman, 2026), a 4-hour first session and a 2-hour yearly refresher for four Rangers, about 30 loans a season at 15 minutes each, and a 10% yearly replacement reserve. Swap in better figures if the team has them, and keep Table 10, Table 11, Figure 13 (the `data` array in `js/main.js`) and the executive summary in step.
 - **Concept renders (Figure 11).** The Tier 1 render shows a pouch, but Table 5 only adds the pouch at Tier 2. The strobe in the renders is a branded torch, not the ACR strobe in the costing. Fix the renders or say in the note that they are illustrative (the note already says this).
 - **One editor reads every page** so the site reads in one voice and in the third person.
 
@@ -120,7 +121,7 @@ First, confirm you understand. Then wait for my request.
 
 **Audience.** YAC and the Lama Lama Rangers (decision makers), the public and visitors, and UTS markers. The writing is plain and in the third person. Community authority is stated up front: YAC approves destinations, tier rules and data handling.
 
-**The design in one paragraph.** Rangers ask four questions about each approved trip (approval, nearby assistance, communication, hazards) and issue one of three tiers. **Tier 1** (near base) is a printed visitor guide and a trip record. **Tier 2** (away from base) adds a strobe, whistle, power bank and protective pouch. **Tier 3** (remote or unmonitored) adds a two-way satellite messenger, benchmarked on the Garmin inReach Messenger. Every trip has a due-back time that a named person monitors. The first-year pilot is about AUD $3,405, including 15% contingency, then about $528 per year for satellite service plus staff time and replacements.
+**The design in one paragraph.** Rangers ask four questions about each approved trip (approval, nearby assistance, communication, hazards) and issue one of three tiers. **Tier 1** (near base) is a printed visitor guide and a trip record. **Tier 2** (away from base) adds a strobe, whistle, power bank and protective pouch. **Tier 3** (remote or unmonitored) adds a two-way satellite messenger, benchmarked on the Garmin inReach Messenger. Every trip has a due-back time that a named person monitors. The first-year pilot is about AUD $4,233, including Ranger training and 15% contingency, then about $1,413 per year for satellite service, refresher training, replacements and Ranger time.
 
 **Pages (15) and their routes.** The menu groups pages the same way a Google Sites menu would.
 
@@ -241,7 +242,7 @@ The first column also counts every table, figure label and *Note.* line. Excludi
   - Google Fonts (falls back to system fonts if blocked).
   - jsDelivr for model-viewer (falls back to a message, and the renders still show).
   - The Google Maps embed (falls back to an "open in Google Maps" link).
-- **Rebuilding the single file.** It is `website/` with `css/styles.css` and `js/main.js` inlined, every `img/*.webp` turned into a base64 data URI, and `models/kits.js` appended at the end. Edit the single file directly for small text changes.
+- **Rebuilding the single file.** It is `website/` with `css/styles.css` and `js/main.js` inlined, every `img/*.webp` turned into a base64 data URI, and `models/kits.js` appended at the end. Edit the files in `website/`, then run `python build_single_file.py` to regenerate it, so the two versions never drift apart.
 
 ---
 
@@ -422,7 +423,7 @@ Notes for this page:
 - Text box → "Costs are in Australian dollars, checked on 8 October 2026.…"
 - Embed → Embed code (HTML table) → Table 9: *Tier 3 satellite messenger cost baseline*
 - Embed → Embed code (HTML table) → Table 10: *Illustrative first-year pilot cost*
-- Insert → Chart (from a Google Sheet) → Figure 13: *First-year pilot cost by budget line (AUD; total $3,405)*
+- Insert → Chart (from a Google Sheet) → Figure 13: *First-year pilot cost by budget line (AUD; total $4,233)*
 - Heading → "Beyond the pilot"
 - Text box → "After the first year, satellite service for two devices costs…"
 - Embed → Embed code (HTML table) → Table 11: *Three-year cost view*

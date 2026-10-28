@@ -176,7 +176,7 @@
 
   // ---------- Figure 13: cost chart (values from Table 10) ----------
   (function () {
-    var data = [['2 messengers + activation', 1138], ['5 accessory bundles', 875], ['Satellite service (12 months)', 528], ['Contingency (15%)', 444.15], ['Materials, training, setup and delivery', 420]];
+    var data = [['2 messengers + activation', 1138], ['5 accessory bundles', 875], ['Ranger training (4 Rangers × 4 h)', 720], ['Contingency (15%)', 552.15], ['Satellite service (12 months)', 528], ['Materials, setup and delivery', 420]];
     var total = data.reduce(function (s, d) { return s + d[1]; }, 0), max = 1500;
     var box = document.getElementById('costChart');
     var tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true; box.appendChild(tip);
@@ -210,6 +210,7 @@
   // ---------- Figure 12: implementation timeline ----------
   (function () {
     var months = ['Nov 26', 'Dec', 'Jan 27', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov 27'];
+    var full = ['Nov 2026', 'Dec 2026', 'Jan 2027', 'Feb 2027', 'Mar 2027', 'Apr 2027', 'May 2027', 'Jun 2027', 'Jul 2027', 'Aug 2027', 'Sep 2027', 'Oct 2027', 'Nov 2027'];
     var wet = [0, 1, 2, 3, 4, 5, 12];
     var phases = [
       ['1. Local review', 'YAC and Rangers agree routes, tier rules, monitoring and privacy', 0, 4, '#143F61'],
@@ -222,8 +223,16 @@
     g.appendChild(document.createElement('div'));
     months.forEach(function (m, i) { var d = document.createElement('div'); d.className = 'tl-m' + (wet.indexOf(i) >= 0 ? ' wet' : ''); d.textContent = m; g.appendChild(d); });
     phases.forEach(function (p, r) {
-      var l = document.createElement('div'); l.className = 'tl-l'; l.textContent = p[0]; l.style.gridRow = r + 2; l.style.gridColumn = '1'; g.appendChild(l);
-      var b = document.createElement('div'); b.className = 'tl-b'; b.textContent = p[1]; b.title = p[1];
+      // the label column carries the description, so the bars only need the dates (a one-month bar is too narrow for text)
+      var l = document.createElement('div'); l.className = 'tl-l'; l.style.gridRow = r + 2; l.style.gridColumn = '1';
+      var name = document.createElement('b'); name.textContent = p[0];
+      var desc = document.createElement('span'); desc.textContent = p[1];
+      l.appendChild(name); l.appendChild(desc); g.appendChild(l);
+      var a = full[p[2]].split(' '), z = full[p[3] - 1].split(' ');
+      var when = p[3] - p[2] === 1 ? full[p[2]] : a[1] === z[1] ? a[0] + ' – ' + z.join(' ') : full[p[2]] + ' – ' + full[p[3] - 1];
+      var b = document.createElement('div'); b.className = 'tl-b'; b.title = p[0] + ': ' + when;
+      b.textContent = p[3] - p[2] === 1 ? months[p[2]] : months[p[2]] + '–' + months[p[3] - 1];
+      b.dataset.full = when; // the stacked phone layout shows the full dates instead
       b.style.gridRow = r + 2; b.style.gridColumn = (p[2] + 2) + ' / ' + (p[3] + 2); b.style.background = p[4];
       g.appendChild(b);
     });
