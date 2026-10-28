@@ -1,6 +1,6 @@
 # Tiered Visitor Safety System: website files, Google Sites handoff and build notes
 
-Group 2 ("The Group") · UTS 31265 Communication for IT Professionals · EWB Challenge 2026, Port Stewart (Lama Lama), Project Opportunity 2.4
+"The Group" · UTS 31265 Communication for IT Professionals · EWB Challenge 2026, Port Stewart (Lama Lama), Project Opportunity 2.4
 
 This file goes with the finished website. It explains how to get the site into Google Sites through Gemini, what the team still has to add, and how every part of the site is built. Sections 1 to 6 are for the team. Section 7 is the prompt to give Gemini. Sections 8 onwards are reference material for Gemini or anyone editing the site.
 
@@ -116,7 +116,7 @@ First, confirm you understand. Then wait for my request.
 
 ## 8. Site overview
 
-**Purpose.** The site presents Group 2's proposal to the client, Yintjingga Aboriginal Corporation (YAC), and to the public: a Ranger-run loan system that matches safety equipment to each approved visitor trip on Lama Lama Country. It follows the EWB/UTS Task 3 template order (problem → options → selection → detailed design → prototype → implementation → costs → considerations → recommendations), so each page builds the argument for the next.
+**Purpose.** The site presents The Group's proposal to the client, Yintjingga Aboriginal Corporation (YAC), and to the public: a Ranger-run loan system that matches safety equipment to each approved visitor trip on Lama Lama Country. It follows the EWB/UTS Task 3 template order (problem → options → selection → detailed design → prototype → implementation → costs → considerations → recommendations), so each page builds the argument for the next.
 
 **Audience.** YAC and the Lama Lama Rangers (decision makers), the public and visitors, and UTS markers. The writing is plain and in the third person. Community authority is stated up front: YAC approves destinations, tier rules and data handling.
 
@@ -138,7 +138,7 @@ First, confirm you understand. Then wait for my request.
 | Delivery | Cost analysis | `#costs` | Tables 9–11, Figure 13 (cost chart), funding, end of life |
 | Delivery | Other considerations | `#considerations` | Figure 14 (visitor journey map), Table 12 (broader considerations) |
 | Delivery | Recommendations | `#recommendations` | Six follow-up actions |
-| Team | Group 2 – "The Group" | `#team` | Group declaration, Table 13 |
+| Team | "The Group" | `#team` | Group declaration, Table 13 |
 | References | References | `#references` | 24 APA 7 references, hanging indent, links |
 | Appendices | Appendices | `#appendices` | A–E in collapsibles |
 
@@ -155,9 +155,9 @@ Figures and tables use APA 7 style: a bold label, an italic title, and a *Note.*
 ## 9. Writing rules (for any edits)
 
 - Australian English (organise, colour, centre); dates like 8 October 2026; money as AUD with $.
-- Third person ("the team", "Group 2"), never "we/I", except in the Acknowledgement of Country.
+- Third person ("the team", "The Group"), never "we/I", except in the Acknowledgement of Country.
 - Respectful language: Lama Lama people, Traditional Owners, Country and Sea Country (capitalised), Elders, Yintjingga Aboriginal Corporation (YAC). Decisions belong to YAC and the Rangers, so proposals are offered "for review".
-- APA 7 in-text citations, for example (EWB Australia, 2026, p. 31). Every citation must be in the reference list and every reference must be cited. Self-made figures say "Created by Group 2 (2026)".
+- APA 7 in-text citations, for example (EWB Australia, 2026, p. 31). Every citation must be in the reference list and every reference must be cited. Self-made figures say "Created by The Group (2026)".
 - Figures and tables are numbered in order of appearance across the whole site. If one is added, renumber the later ones and every mention of them in the text.
 - Word limit: 4,000 words, excluding the cover/landing information, executive summary, references and appendices (section 12).
 
@@ -447,9 +447,9 @@ Notes for this page:
 - Text box → "The following work sits outside this project's scope but is…"
 - Text box (bulleted list) → "Record visitor numbers, party sizes and trip lengths for a…"
 
-#### Group 2 – "The Group" (`#team`)
+#### "The Group" (`#team`)
 
-- Header type: Banner → page title Group 2 – "The Group", photo `cover.webp`
+- Header type: Banner → page title "The Group", photo `cover.webp`
 - Heading → "Group declaration"
 - Text box → "Only team members who contributed directly to this website are…"
 - Embed → Embed code (HTML table) → Table 13: *Team member contributions*

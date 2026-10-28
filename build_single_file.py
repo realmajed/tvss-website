@@ -13,7 +13,7 @@ SITE = ROOT / "website"
 OUT = ROOT / "tvss-website-single-file.html"
 
 HEADER = """<!--
-  Tiered Visitor Safety System · Group 2 ("The Group") · UTS 31265 · EWB Challenge 2026
+  Tiered Visitor Safety System · "The Group" · UTS 31265 · EWB Challenge 2026
   Single-file build: the whole website in one file. Pages are <section class="page" data-route="..."> blocks;
   the URL hash (#home, #design ...) picks the page. Text is plain HTML, so edit it with find (Ctrl+F).
   Images are embedded as data URIs; the 3D models are in the last <script> at the very end.
