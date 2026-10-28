@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tiered Visitor Safety System · EWB Challenge 2026</title>
+<meta name="description" content="The Group's EWB Challenge 2026 proposal for Yintjingga Aboriginal Corporation: a three-tier safety equipment loan system for visitors to Lama Lama Country, Port Stewart.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230D2E48'/%3E%3Crect x='7' y='18' width='18' height='5' rx='1.5' fill='%23009E82'/%3E%3Crect x='9.5' y='12.5' width='13' height='5' rx='1.5' fill='%23B87414'/%3E%3Crect x='12' y='7' width='8' height='5' rx='1.5' fill='%23C4472B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Open+Sans:wght@600;700;800&amp;display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-guide" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M15 3v3h3"/><path d="M9 11h6M9 15h6"/></g></symbol>
+    <symbol id="i-record" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3.5h6v3H9z"/><path d="M8.5 13l2.2 2.2 4.5-4.5"/></g></symbol>
+    <symbol id="i-whistle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9.5h10"/><path d="M2.5 9.5v3.5h7"/><circle cx="15" cy="13.5" r="5"/><circle cx="15" cy="13.5" r="1.4"/></g></symbol>
+    <symbol id="i-strobe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="12" rx="1.5"/><path d="M8.5 9l-.8-2.5h8.6L15.5 9"/><path d="M12 2.5v1.5M5.5 4.5l1.2 1.2M18.5 4.5l-1.2 1.2"/></g></symbol>
+    <symbol id="i-battery" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M12.5 7.5l-2.5 4.5h4l-2.5 4.5"/></g></symbol>
+    <symbol id="i-pouch" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="3"/><path d="M3 12.5h18"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></g></symbol>
+    <symbol id="i-sat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="8" width="10" height="13" rx="2"/><path d="M9.5 11h5v4h-5z"/><path d="M12 8V5"/><path d="M8.6 4.2a5 5 0 0 1 6.8 0"/></g></symbol>
+  </defs>
+</svg>
+
+<div class="topstack">
+  <header class="siteheader">
+    <div class="wrap">
+      <a class="brand" href="#home">
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#0D2E48" stroke="#9FE0D2" stroke-width="1.5"/><rect x="7" y="18" width="18" height="5" rx="1.5" fill="#009E82"/><rect x="9.5" y="12.5" width="13" height="5" rx="1.5" fill="#B87414"/><rect x="12" y="7" width="8" height="5" rx="1.5" fill="#C4472B"/></svg>
+        <span>Tiered Visitor Safety System</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" type="button">Menu</button>
+      <nav class="nav" id="nav" aria-label="Site">
+        <ul>
+          <li><a href="#home" data-r="home">Home</a></li>
+          <li class="grp"><button class="grp-btn" type="button" aria-expanded="false" data-g="project">Project</button>
+            <ul class="sub">
+              <li><a href="#project" data-r="project">Project details</a></li>
+              <li><a href="#background" data-r="background">Background</a></li>
+              <li><a href="#problem" data-r="problem">Problem &amp; criteria</a></li>
+            </ul></li>
+          <li class="grp"><button class="grp-btn" type="button" aria-expanded="false" data-g="design">Design</button>
+            <ul class="sub">
+              <li><a href="#options" data-r="options">Design options</a></li>
+              <li><a href="#selection" data-r="selection">Design selection</a></li>
+              <li><a href="#design" data-r="design">Detailed design</a></li>
+            </ul></li>
+          <li><a href="#prototype" data-r="prototype">Prototype</a></li>
+          <li class="grp"><button class="grp-btn" type="button" aria-expanded="false" data-g="delivery">Delivery</button>
+            <ul class="sub">
+              <li><a href="#implementation" data-r="implementation">Implementation plan</a></li>
+              <li><a href="#costs" data-r="costs">Cost analysis</a></li>
+              <li><a href="#considerations" data-r="considerations">Other considerations</a></li>
+              <li><a href="#recommendations" data-r="recommendations">Recommendations</a></li>
+            </ul></li>
+          <li><a href="#team" data-r="team">Team</a></li>
+          <li><a href="#references" data-r="references">References</a></li>
+          <li><a href="#appendices" data-r="appendices">Appendices</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<main id="main">
+
+<!-- HOME -->
+<section class="page" id="p-home" data-route="home">
+  <div class="banner cover bg-cover">
+    <div class="wrap">
+      <p class="eyebrow">EWB Challenge 2026 · Port Stewart, Lama Lama Country</p>
+      <h1>Tiered Visitor Safety System</h1>
+      <p class="sub">Three equipment tiers for approved visitor trips, issued and tracked by the Lama Lama Rangers.</p>
+      <div class="btnrow">
+        <button class="btn primary" type="button" data-scroll="exec">Read the proposal</button>
+        <a class="btn ghost" href="#prototype">Explore the kits in 3D</a>
+      </div>
+    </div>
+    <span class="credit">Photo: Engineers Without Borders Australia (2026), cover</span>
+  </div>
+
+  <section class="sec navy">
+    <div class="wrap">
+      <div class="ack">
+        <p class="kicker">Acknowledgement of Country</p>
+        <p style="margin-top:10px">We acknowledge the Traditional Custodians of the Country on which we meet and pay our respects to Elders past and present. We recognise the Lama Lama people's continuing connection to Land and Sea Country and their authority to guide access and care for Country.</p>
+        <p>This proposal is offered for the consideration of Yintjingga Aboriginal Corporation. Decisions about access, equipment and visitor information rest with the Lama Lama people.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="exec">
+    <div class="wrap">
+      <article class="exec">
+        <h1>Tiered Visitor Safety System</h1>
+        <p class="snap">A Ranger-run loan system that matches safety equipment to each approved visitor trip on Lama Lama Country, from a printed guide near base to a two-way satellite messenger for remote trips.</p>
+        <div class="meta">
+          <p><b>Design Area(s):</b> 2 – Eco-tourism and Visitor Experience (Project Opportunity 2.4 – Improving visitor management and safety)</p>
+          <p><b>Keywords:</b> visitor safety; remote emergency communication; satellite messenger; equipment loan; trip assessment; Ranger operations; Cape York; Lama Lama Country</p>
+        </div>
+
+        <h2>Proposal Summary</h2>
+        <p class="just">Visitors to Lama Lama Country check in at Ranger bases with reliable satellite internet, then travel into areas with limited or no mobile coverage, where Rangers cannot tell if a trip has run late and visitors have no dependable way to call for help (Engineers Without Borders Australia [EWB Australia], 2026). The project aims to close this gap through a three-tier equipment loan system: Rangers assess each approved trip, issue the matching tier of equipment and record when the visitor is due back. Equipment scales with exposure, so remote trips gain two-way satellite contact while near-base trips stay simple and low-cost.</p>
+
+        <h2>Overview of Design</h2>
+        <p class="just">The Tiered Visitor Safety System achieves trip accountability and remote emergency contact through a check-out and return process run from the Ranger base (Figure 1). Rangers apply four assessment questions to each approved trip, covering approval, nearby assistance, communication and hazards, to allocate one of three tiers. The design includes the following physical components: a printed visitor guide and trip record (Tier 1); a strobe, whistle, power bank and protective pouch (added at Tier 2); and a two-way satellite messenger (added at Tier 3). Rangers use the system to account for trips, visitors carry the kit, and Yintjingga Aboriginal Corporation (YAC) sets the rules and owns the equipment.</p>
+
+        <figure class="fig" style="margin-top:20px">
+          <div class="fig-label"><b>Figure 1</b><i>The three equipment tiers and the trips they serve</i></div>
+          <div class="tiers">
+            <div class="tier t1">
+              <div class="tier-top"><span class="tnum-c">1</span><div><h3>Near base</h3></div></div>
+              <p class="when">Approved, monitored activity with help readily reachable.</p>
+              <ul class="items">
+                <li class="new"><svg aria-hidden="true"><use href="#i-guide"/></svg>Printed visitor guide</li>
+                <li class="new"><svg aria-hidden="true"><use href="#i-record"/></svg>Trip record (out and back)</li>
+              </ul>
+            </div>
+            <div class="tier t2">
+              <div class="tier-top"><span class="tnum-c">2</span><div><h3>Away from base</h3></div></div>
+              <p class="when">Approved trip with a credible existing assistance arrangement.</p>
+              <ul class="items">
+                <li class="inh"><svg aria-hidden="true"><use href="#i-guide"/></svg>Everything in Tier 1</li>
+                <li class="new"><svg aria-hidden="true"><use href="#i-strobe"/></svg>Strobe</li>
+                <li class="new"><svg aria-hidden="true"><use href="#i-whistle"/></svg>Whistle</li>
+                <li class="new"><svg aria-hidden="true"><use href="#i-battery"/></svg>Power bank</li>
+                <li class="new"><svg aria-hidden="true"><use href="#i-pouch"/></svg>Protective pouch</li>
+              </ul>
+            </div>
+            <div class="tier t3">
+              <div class="tier-top"><span class="tnum-c">3</span><div><h3>Remote or unmonitored</h3></div></div>
+              <p class="when">No reliable terrestrial contact, or a long delay before help.</p>
+              <ul class="items">
+                <li class="inh"><svg aria-hidden="true"><use href="#i-pouch"/></svg>Everything in Tier 2</li>
+                <li class="new"><svg aria-hidden="true"><use href="#i-sat"/></svg>Two-way satellite messenger</li>
+              </ul>
+            </div>
+          </div>
+          <p class="fig-note"><i>Note.</i> Created by The Group (2026), adapted from the team's final presentation.</p>
+        </figure>
+
+        <h2>Key Considerations</h2>
+        <ul class="kc">
+          <li><b>Community authority.</b> YAC and the Rangers approve destinations, tier rules, monitoring arrangements and data handling before any kit is issued.</li>
+          <li><b>Sourcing.</b> All equipment is off the shelf from Australian retailers and is delivered through Cairns; nothing is manufactured locally (BCF, n.d.; BIG W, n.d.; Kmart, n.d.-a; Whitworths Marine &amp; Leisure, n.d.; Wuben, n.d.).</li>
+          <li><b>Maintenance.</b> Kits are inspected, cleaned and recharged on return, one charged Tier 3 kit is held in reserve, and satellite service is suspended over the wet season (Garmin, n.d.-a).</li>
+          <li><b>Limitations.</b> A strobe and whistle only reach people within sight or earshot, satellite messaging cannot promise a rescue time, and radio is excluded until compatibility and coverage are confirmed (Australian Communications and Media Authority [ACMA], 2025, 2026).</li>
+          <li><b>Implementation.</b> Staged: local review over the wet season, training and a limited dry-season pilot, then a review before any expansion.</li>
+          <li><b>Validation needed.</b> Actual visitor demand (EWB's planning estimate is fewer than 10 tourists per week; Todio, n.d.), simultaneous remote trips, messenger performance on approved routes and Ranger time per issue.</li>
+        </ul>
+
+        <h2>Proposed Materials and Cost Summary</h2>
+        <ul class="kc">
+          <li><b>Purchased materials:</b> two two-way satellite messengers (Garmin inReach Messenger as the benchmark), five accessory bundles (Wuben X1 Pro strobe torch, whistle, power bank and pouch) and satellite service for one season.</li>
+          <li><b>Other materials:</b> printed and laminated visitor guides, trip record cards, labels, and a charging and storage point at the Ranger base.</li>
+          <li><b>Labour:</b> a four-hour training session for four Rangers before the pilot, a two-hour refresher each dry season, and Ranger time to issue and reset kits.</li>
+          <li><b>Estimated total cost:</b> about AUD $4,825 for the first-year pilot, including Ranger training and 15% contingency, then about AUD $1,465 per year for satellite service, refresher training, replacements and Ranger time. AUD is also the local currency.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap">
+      <div class="sec-head"><p class="kicker">Project at a glance</p><h2>Design brief details</h2></div>
+      <dl class="glance">
+        <div><dt>Design Area</dt><dd>2 – Eco-tourism and Visitor Experience</dd></div>
+        <div><dt>Project Opportunity</dt><dd>2.4 – Improving visitor management and safety</dd></div>
+        <div><dt>Tutorial</dt><dd>Tutorial 2 (Friday) · Tutor: Pranavi Gangapuri</dd></div>
+        <div><dt>Group</dt><dd>"The Group"</dd></div>
+        <div class="wide"><dt>How might we…</dt><dd>How might we help Lama Lama Rangers account for visitor trips and support emergency contact from remote areas with limited connectivity, using equipment and staff time the community can sustain?</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec white"><div class="wrap pager"><span></span><a class="btn outline" href="#project">Next: Project details →</a></div></section>
+</section>
+
+<!-- PROJECT DETAILS -->
+<section class="page" id="p-project" data-route="project">
+  <div class="banner bg-aerial">
+    <div class="wrap"><p class="eyebrow">Project</p><h1>Project details</h1></div>
+    <span class="credit">Photo: EWB Australia (2026, p. 18)</span>
+  </div>
+  <section class="sec">
+    <div class="wrap split">
+      <div class="prose">
+        <p>Port Stewart (Yintjingga), on Princess Charlotte Bay in eastern Cape York, is the hub for the Lama Lama Ranger program and tourism management (EWB Australia, 2026; Yintjingga Aboriginal Corporation [YAC], n.d.-a). Lama Lama National Park is not a conventional national park: Traditional Owners hold freehold title and co-manage it with Queensland Parks and Wildlife Service (EWB Australia, 2026, p. 32).</p>
+        <p>The Chair of YAC sees tourism as the community's most promising growth opportunity, with visitor fees helping to fund caring for Country (EWB Australia, 2026, p. 31). Growth that outpaces community capacity or bypasses Traditional Owner control can damage the values tourism depends on (Matson, 2020), so any visitor system must sit under Lama Lama authority.</p>
+        <p>The project responds to Design Area 2, Eco-tourism and Visitor Experience, and Project Opportunity 2.4: systems that improve visitor management and safety in a remote park, such as monitoring visitor locations and responding to emergencies where connectivity is limited (EWB Australia, 2026, p. 32).</p>
+      </div>
+      <div class="stack">
+        <div class="callout">
+          <span class="lbl">What is needed</span>
+          <p>Lama Lama Rangers need a simple, affordable way to account for every approved visitor trip and to receive a call for help from remote areas, because visitors travel beyond mobile coverage and the Rangers' radio network.</p>
+        </div>
+        <figure class="fig">
+          <div class="fig-label"><b>Figure 2</b><i>Map of Lama Lama Country</i></div>
+          <img src="img/map.webp" alt="Map of Lama Lama land and sea Country around Princess Charlotte Bay, showing land trusts, national parks and Sea Country boundaries" loading="lazy" width="873" height="842">
+          <p class="fig-note"><i>Note.</i> From <i>2026 EWB Challenge design brief: Port Stewart, Lama Lama</i> (p. 14), by Engineers Without Borders Australia, 2026. Copyright 2026 by Engineers Without Borders Australia.</p>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <section class="sec tint">
+    <div class="wrap">
+      <figure class="fig">
+        <div class="fig-label"><b>Figure 3</b><i>Location of Port Stewart on Cape York Peninsula</i></div>
+        <div class="mapbox">
+          <p class="map-fallback">Loading map… If it does not appear, <a href="https://maps.google.com/?q=Port+Stewart+QLD+4892" target="_blank" rel="noopener">open Port Stewart in Google Maps</a>.</p>
+          <iframe src="https://maps.google.com/maps?q=Port%20Stewart%2C%20QLD%204892&amp;z=7&amp;output=embed" title="Google Map showing the location of Port Stewart on Cape York Peninsula, Queensland" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <p class="fig-note"><i>Note.</i> Map from Google (n.d.). <a href="https://maps.google.com/?q=Port+Stewart+QLD+4892" target="_blank" rel="noopener">Open in Google Maps</a>.</p>
+      </figure>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#home">← Home</a><a class="btn outline" href="#background">Next: Background →</a></div></section>
+</section>
+
+<!-- BACKGROUND -->
+<section class="page" id="p-background" data-route="background">
+  <div class="banner bg-running-creek">
+    <div class="wrap"><p class="eyebrow">Project</p><h1>Background</h1></div>
+    <span class="credit">Photo: EWB Australia (2026, p. 21)</span>
+  </div>
+  <section class="sec">
+    <div class="wrap split">
+      <div class="prose">
+        <h2>Visiting Lama Lama Country</h2>
+        <p>Fishing and camping are the main drawcards, with campgrounds at Safari Camp (Warokutal) and Silver Plains Station (Maramba). Camping costs $15 per person per night, booked through the Cairns office or paid in cash at Running Creek, and the lack of EFTPOS limits revenue (EWB Australia, 2026, p. 31). Visitation stops in the wet season, from mid-November to mid-April, when tracks flood and the park closes (EWB Australia, 2026, pp. 27, 31). Visitor numbers are not measured; EWB's planning estimate is fewer than 10 tourists per week (Todio, n.d.).</p>
+      </div>
+      <figure class="fig">
+        <div class="fig-label"><b>Figure 4</b><i>Visitor infrastructure at Safari Camp (Warokutal)</i></div>
+        <img src="img/safari-camp.webp" alt="Open-sided shelter on dry ground at Safari Camp, with scattered trees" loading="lazy" width="900" height="600">
+        <p class="fig-note"><i>Note.</i> From <i>2026 EWB Challenge design brief: Port Stewart, Lama Lama</i> (p. 19), by Engineers Without Borders Australia, 2026. Copyright 2026 by Engineers Without Borders Australia.</p>
+      </figure>
+    </div>
+  </section>
+  <section class="sec white">
+    <div class="wrap stack">
+      <div class="prose">
+        <h2>How communication works today</h2>
+        <p>Ranger bases and outstations have reliable Starlink and Activ8me satellite internet for reporting, coordination and calls (EWB Australia, 2026, pp. 18–21, 37). In the field, Ranger vehicles rely on VHF radio for real-time communication and emergency response (EWB Australia, 2026, p. 38). Mobile coverage is limited or non-existent in remote areas, and the pier used by fishers has no communications at all (EWB Australia, 2026, pp. 29, 37). The network reaches Rangers and buildings, but not visitors once they leave a base (Figure 5).</p>
+      </div>
+      <figure class="fig">
+        <div class="fig-label"><b>Figure 5</b><i>Communication reach compared with where visitors travel</i></div>
+        <div class="diagram">
+          <svg viewBox="0 0 760 290" role="img" aria-labelledby="f5t">
+            <title id="f5t">Three zones by distance from a Ranger base: at the base, satellite internet is reliable; in Ranger vehicles, VHF radio works for Rangers only; beyond the base, visitors have no mobile coverage. Below, the proposed tiers map to the same zones.</title>
+            <rect x="20" y="20" width="200" height="150" rx="10" fill="#E1F3EE"/>
+            <rect x="230" y="20" width="240" height="150" rx="10" fill="#FAEEDB"/>
+            <rect x="480" y="20" width="260" height="150" rx="10" fill="#F9E5DF"/>
+            <g fill="#143F61" font-size="15" font-weight="700" text-anchor="middle">
+              <text x="120" y="53">At the Ranger base</text>
+              <text x="350" y="53">Ranger vehicles</text>
+              <text x="610" y="53">Visitors beyond the base</text>
+            </g>
+            <g fill="#3F4D59" font-size="13" text-anchor="middle">
+              <text x="120" y="77">Starlink and Activ8me</text><text x="120" y="95">satellite internet</text>
+              <text x="350" y="77">VHF radio to base</text><text x="350" y="95">(Rangers only)</text>
+              <text x="610" y="77">Limited or no mobile coverage</text><text x="610" y="95">No radio carried</text>
+            </g>
+            <g font-size="12" font-weight="700" text-anchor="middle">
+              <rect x="72" y="123" width="96" height="26" rx="13" fill="#009E82"/><text x="120" y="140" fill="#fff">Connected</text>
+              <rect x="315" y="123" width="70" height="26" rx="13" fill="#B87414"/><text x="350" y="140" fill="#fff">Partial</text>
+              <rect x="525" y="123" width="170" height="26" rx="13" fill="#C4472B"/><text x="610" y="140" fill="#fff">No channel either way</text>
+            </g>
+            <line x1="20" y1="196" x2="728" y2="196" stroke="#5C6A75" stroke-width="1.5"/>
+            <path d="M728 196l-9-5v10z" fill="#5C6A75"/>
+            <text x="20" y="216" font-size="12" fill="#5C6A75">Distance and time from help →</text>
+            <g font-size="12.5" font-weight="700" text-anchor="middle">
+              <rect x="20" y="236" width="200" height="34" rx="8" fill="none" stroke="#009E82" stroke-width="2" stroke-dasharray="5 4"/><text x="120" y="258" fill="#00735D">Response: Tier 1</text>
+              <rect x="230" y="236" width="240" height="34" rx="8" fill="none" stroke="#B87414" stroke-width="2" stroke-dasharray="5 4"/><text x="350" y="258" fill="#7A4A06">Response: Tier 2</text>
+              <rect x="480" y="236" width="260" height="34" rx="8" fill="none" stroke="#C4472B" stroke-width="2" stroke-dasharray="5 4"/><text x="610" y="258" fill="#8E2D16">Response: Tier 3 (satellite)</text>
+            </g>
+          </svg>
+        </div>
+        <p class="fig-note"><i>Note.</i> Created by The Group (2026) using information from EWB Australia (2026, pp. 18–21, 29, 37–38).</p>
+      </figure>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap split">
+      <div class="prose">
+        <h2>When something goes wrong</h2>
+        <p>Aunty Mary, a Lama Lama Elder and former nurse, is the volunteer community health contact who coordinates Royal Flying Doctor Service evacuations (EWB Australia, 2026, p. 23). A new airstrip near the Ranger Base supports evacuations (EWB Australia, 2026, p. 29), but help still depends on someone raising the alarm. In remote Australia, retrieval can take 12 hours or more, and injury mortality is up to five times higher than in cities (Dobson et al., 2022).</p>
+      </div>
+      <blockquote class="quote">
+        <p>"Last year I had a bloke with a stinger ray barb in his hand. We had three months of rain and we couldn't get him to Coen because we didn't have the air strip then. He almost died on me."</p>
+        <p class="who">Aunty Mary, Lama Lama Elder (as cited in EWB Australia, 2026, p. 23)</p>
+      </blockquote>
+    </div>
+  </section>
+  <section class="sec white">
+    <div class="wrap stack">
+      <h2>What is already being done</h2>
+      <div class="fig">
+        <div class="fig-label"><b>Table 1</b><i>Current visitor management measures and their gaps</i></div>
+        <div class="tbl-wrap">
+          <table class="t">
+            <thead><tr><th>Measure</th><th>What it does</th><th>Gap</th></tr></thead>
+            <tbody>
+              <tr><td>Check-in at a Ranger base, 8:00 am to 4:30 pm</td><td>Rangers brief visitors on campsites, conditions and rules (YAC, n.d.-b)</td><td>Ends at the gate; nothing shows when a trip is overdue</td></tr>
+              <tr><td>Permits and restricted areas</td><td>Camping only in designated areas; Pelican, Marpa, Burkitt and Stainer Islands are closed to visitors (YAC, n.d.-b)</td><td>Relies on visitors remembering the briefing</td></tr>
+              <tr><td>Signage and patrols</td><td>Signs at refuges; Rangers patrol and manage entry at Running Creek (EWB Australia, 2026, pp. 21, 31)</td><td>Static; Rangers cannot be everywhere</td></tr>
+              <tr><td>Advice to carry a beacon</td><td>Queensland parks advise a satellite phone or personal locator beacon where there is no coverage (Department of the Environment, Tourism, Science and Innovation [DETSI], 2026)</td><td>Optional; many visitors arrive without one</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <figure class="fig" style="max-width:640px">
+        <div class="fig-label"><b>Figure 6</b><i>Visitor signage at Marina Plains nature refuge</i></div>
+        <img src="img/signage.webp" alt="Roadside signs at Marina Plains nature refuge: Lama Lama Land Trust warning, camera surveillance, private property and no trespassing" loading="lazy" width="739" height="526">
+        <p class="fig-note"><i>Note.</i> From <i>2026 EWB Challenge design brief: Port Stewart, Lama Lama</i> (p. 31), by Engineers Without Borders Australia, 2026. Copyright 2026 by Engineers Without Borders Australia.</p>
+      </figure>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap prose">
+      <h2>Why this is not enough</h2>
+      <p>Each existing measure works at the base or at a sign; none follows the visitor. Australian land managers describe a growing group of less experienced, social-media-driven visitors who are less influenced by traditional safety messages (Cornell et al., 2024), and who may not carry their own beacon. The project therefore aims to give every approved trip a due-back time that someone watches, and every remote trip a way to call for help, without building infrastructure that must survive the wet season.</p>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#project">← Project details</a><a class="btn outline" href="#problem">Next: Problem &amp; criteria →</a></div></section>
+</section>
+
+<!-- PROBLEM & CRITERIA -->
+<section class="page" id="p-problem" data-route="problem">
+  <div class="banner bg-signage">
+    <div class="wrap"><p class="eyebrow">Project</p><h1>Problem and design criteria</h1></div>
+    <span class="credit">Photo: EWB Australia (2026, p. 31)</span>
+  </div>
+  <section class="sec">
+    <div class="wrap stack">
+      <h2>Design criteria</h2>
+      <p class="prose">Each option must first pass a community-control gate: YAC approves destinations, tier rules and data handling, because Traditional Owners govern the land and its visitor access (EWB Australia, 2026, p. 32). Options that pass are then scored against five weighted criteria (Table 2).</p>
+      <div class="fig">
+        <div class="fig-label"><b>Table 2</b><i>Design criteria, justification and weighting</i></div>
+        <div class="tbl-wrap">
+          <table class="t">
+            <thead><tr><th>Criterion</th><th>Description</th><th>Why it matters to the community</th><th class="num">Weight</th></tr></thead>
+            <tbody>
+              <tr><td><b>Remote emergency contact</b></td><td>A visitor on a remote approved trip can send a distress alert with their position and receive a reply, without mobile coverage.</td><td>This is the core safety gap; the stingray case shows the cost of delay (EWB Australia, 2026, p. 23).</td><td class="num">30%</td></tr>
+              <tr><td><b>Lifecycle affordability</b></td><td>Cost over three years, including devices, subscriptions, replacements and staff time, can be funded by YAC or a grant.</td><td>A satellite kit for every party created an affordability problem in early concepts.</td><td class="num">25%</td></tr>
+              <tr><td><b>Ranger workload</b></td><td>Issue and return fit within normal check-in, using a one-page procedure and minimal training.</td><td>Tools that need minimal training work best in Ranger contexts (EWB Australia, 2026, p. 38).</td><td class="num">20%</td></tr>
+              <tr><td><b>Risk matching</b></td><td>Equipment capability scales with the trip's distance, duration and hazards.</td><td>Near-base trips should not carry the cost of remote-trip equipment.</td><td class="num">15%</td></tr>
+              <tr><td><b>Seasonal maintainability</b></td><td>Equipment can be suspended, stored and restarted around the wet season and repaired with common spares.</td><td>Systems must tolerate wet-season isolation and scarce maintenance labour (EWB Australia, 2026, p. 27).</td><td class="num">10%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#background">← Background</a><a class="btn outline" href="#options">Next: Design options →</a></div></section>
+</section>
+
+<!-- DESIGN OPTIONS -->
+<section class="page" id="p-options" data-route="options">
+  <div class="banner titleonly">
+    <div class="wrap"><p class="eyebrow">Design</p><h1>Design options</h1></div>
+  </div>
+  <section class="sec">
+    <div class="wrap stack">
+      <p class="prose">Three distinct options were developed for the same problem, each adapting an existing approach to Lama Lama Country.</p>
+      <div class="grid3">
+        <article class="opt">
+          <div class="head"><span class="num">Option 1</span><span class="ico"><svg aria-hidden="true"><use href="#i-sat"/></svg><svg aria-hidden="true"><use href="#i-pouch"/></svg></span></div>
+          <h3>Satellite kit for every party</h3>
+          <p class="small">Every visiting party borrows a two-way satellite messenger and accessory kit at check-in. This extends the advice to carry a distress beacon in remote areas (Australian Maritime Safety Authority [AMSA], n.d.; DETSI, 2026), using a two-way device so Rangers can also send updates (Garmin, 2025).</p>
+          <dl><div><dt>Strength</dt><dd>Remote contact for every party.</dd></div><div><dt>Limitation</dt><dd>Highest equipment and subscription cost; the most devices to charge, track and suspend.</dd></div></dl>
+        </article>
+        <article class="opt">
+          <div class="head"><span class="num">Option 2</span><span class="ico"><svg aria-hidden="true"><use href="#i-guide"/></svg><svg aria-hidden="true"><use href="#i-record"/></svg></span></div>
+          <h3>Trip card and return register</h3>
+          <p class="small">Each party receives a printed card with their route and due-back time, and Rangers keep a departure and return register, following up anyone overdue. This formalises standard advice to tell someone where you are going and when you will return (DETSI, 2026).</p>
+          <dl><div><dt>Strength</dt><dd>Simple and inexpensive.</dd></div><div><dt>Limitation</dt><dd>No independent remote emergency alert.</dd></div></dl>
+        </article>
+        <article class="opt pick">
+          <div class="head"><span class="num">Option 3</span><span class="chip sel">Selected</span></div>
+          <h3>Three equipment tiers</h3>
+          <p class="small">Rangers assess each trip and issue one of three tiers, so equipment follows the trip's exposure (Figure 1). Tier 1 is Option 2's card and register; Tier 3 adds Option 1's satellite messenger only where it is needed.</p>
+          <dl><div><dt>Strength</dt><dd>Capability follows assessed need.</dd></div><div><dt>Limitation</dt><dd>Needs clear tier boundaries and reliable monitoring.</dd></div></dl>
+        </article>
+      </div>
+      <details class="cg">
+        <summary>How the options evolved from earlier concepts</summary>
+        <div class="body stack">
+          <p>Earlier in the project the team screened three different concepts: an offline visitor information and check-in app, a satellite communicator loan kit, and a campsite information station. The satellite kit scored highest but raised cost concerns, the app could not carry a call for help out of the park, and the station could not reach visitors who had already left the campground (Table 3). This feedback led to the loan-based options above. The idea map and the earlier kit concept from that presentation are in Appendix E.</p>
+          <div class="fig">
+            <div class="fig-label"><b>Table 3</b><i>Earlier concepts and why they were screened out</i></div>
+            <div class="tbl-wrap">
+              <table class="t">
+                <thead><tr><th>Earlier concept</th><th class="num">Weighted score</th><th>Outcome</th></tr></thead>
+                <tbody>
+                  <tr><td>Offline visitor app (maps, hazard zones, check-in)</td><td class="num">3.15</td><td>Useful for information, but cannot raise an alarm outside coverage</td></tr>
+                  <tr><td>Ranger-managed satellite loan kit</td><td class="num">3.60</td><td>Strongest safety option; cost and workload concerns led to the tiered approach</td></tr>
+                  <tr><td>Campsite information and check-in station</td><td class="num">2.70</td><td>Cannot reach visitors once they leave the campground</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="fig-note"><i>Note.</i> Created by The Group (2026). Scores from the team's Week 6 decision matrix.</p>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#problem">← Problem &amp; criteria</a><a class="btn outline" href="#selection">Next: Design selection →</a></div></section>
+</section>
+
+<!-- DESIGN SELECTION -->
+<section class="page" id="p-selection" data-route="selection">
+  <div class="banner titleonly">
+    <div class="wrap"><p class="eyebrow">Design</p><h1>Design selection</h1></div>
+  </div>
+  <section class="sec">
+    <div class="wrap stack">
+      <p class="prose">The options were compared in a weighted decision matrix using the criteria in Table 2. All three pass the community-control gate because each runs through YAC-approved rules. Each option was then scored from 1 (poor fit) to 5 (strong fit) on every criterion, and each score was multiplied by the criterion's weight (Table 4).</p>
+      <div class="fig">
+        <div class="fig-label"><b>Table 4</b><i>Weighted decision matrix</i></div>
+        <div class="tbl-wrap">
+          <table class="t">
+            <thead><tr><th>Criterion</th><th class="num">Weight</th><th style="text-align:center">Option 1<br>Satellite kit for all</th><th style="text-align:center">Option 2<br>Card and register</th><th style="text-align:center">Option 3<br>Three tiers</th></tr></thead>
+            <tbody>
+              <tr><td>Remote emergency contact</td><td class="num">30%</td><td class="sc s5">5</td><td class="sc s1">1</td><td class="sc s4">4</td></tr>
+              <tr><td>Lifecycle affordability</td><td class="num">25%</td><td class="sc s1">1</td><td class="sc s5">5</td><td class="sc s4">4</td></tr>
+              <tr><td>Ranger workload</td><td class="num">20%</td><td class="sc s2">2</td><td class="sc s4">4</td><td class="sc s3">3</td></tr>
+              <tr><td>Risk matching</td><td class="num">15%</td><td class="sc s2">2</td><td class="sc s1">1</td><td class="sc s5">5</td></tr>
+              <tr><td>Seasonal maintainability</td><td class="num">10%</td><td class="sc s2">2</td><td class="sc s5">5</td><td class="sc s4">4</td></tr>
+              <tr class="total"><td>Weighted total (out of 5)</td><td class="num">100%</td><td class="sc">2.65</td><td class="sc">3.00</td><td class="sc">3.95</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="legend-scale" aria-hidden="true">Rating scale: <span class="s1" style="background:#F3F7F7">1</span>poor fit <span style="background:#DCEEEA">2</span><span style="background:#BFE2D9">3</span><span style="background:#94D0C1">4</span><span style="background:#5DB9A3">5</span>strong fit</div>
+        <p class="fig-note"><i>Note.</i> Weighted total = sum of (weight × score). Created by The Group (2026).</p>
+      </div>
+      <h2>Why each rating was given</h2>
+      <ul class="kc">
+        <li><b>Remote emergency contact.</b> Option 1 scores 5 because every party can send an SOS. Option 3 scores 4: remote trips carry satellite contact, while other trips rely on a credible assistance arrangement. Option 2 scores 1 because an alarm is only raised once a return is missed.</li>
+        <li><b>Lifecycle affordability.</b> Option 2 scores 5. Option 3 scores 4 because the pilot needs only two messengers and five accessory bundles (Table 9). Option 1 scores 1 because every concurrent party needs a messenger and subscription.</li>
+        <li><b>Ranger workload.</b> Option 2 scores 4. Option 3 scores 3 because it adds a short assessment step. Option 1 scores 2 because it has the most devices to charge, track and suspend.</li>
+        <li><b>Risk matching.</b> Option 3 scores 5 because equipment follows the assessed trip. Option 1 scores 2 and Option 2 scores 1 because each gives every trip the same response.</li>
+        <li><b>Seasonal maintainability.</b> Option 2 scores 5, Option 3 scores 4 and Option 1 scores 2, in line with the number of electronic devices and service plans each must suspend and restart.</li>
+      </ul>
+      <div class="callout">
+        <span class="lbl">Selected design</span>
+        <p>Option 3, the three-tier system, scored highest (3.95 out of 5). It keeps Option 2's low cost for near-base trips and Option 1's satellite contact where it matters, so it was developed in detail.</p>
+      </div>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#options">← Design options</a><a class="btn outline" href="#design">Next: Detailed design →</a></div></section>
+</section>
+
+<!-- DETAILED DESIGN -->
+<section class="page" id="p-design" data-route="design">
+  <div class="banner titleonly">
+    <div class="wrap"><p class="eyebrow">Design</p><h1>Detailed design</h1></div>
+  </div>
+  <section class="sec">
+    <div class="wrap stack">
+      <div class="toc"><span class="lbl">On this page</span><ol data-toc></ol></div>
+      <h2>How it works</h2>
+      <p class="prose">Every approved trip passes through the same four stages (Figure 7), so Rangers learn one procedure for all three tiers.</p>
+      <figure class="fig">
+        <div class="fig-label"><b>Figure 7</b><i>Issue, monitor and return workflow</i></div>
+        <div class="steps">
+          <div class="step"><span class="n">Step 1</span><h3>Before departure</h3><p>Assess the route and tier, check the kit is ready, and log the kit ID and due-back time.</p></div>
+          <div class="step"><span class="n">Step 2</span><h3>Visitor briefing</h3><p>The visitor explains the check-in and emergency steps back to the Ranger.</p></div>
+          <div class="step"><span class="n">Step 3</span><h3>During the trip</h3><p>A named person monitors due returns and routine messages.</p></div>
+          <div class="step"><span class="n">Step 4</span><h3>After return</h3><p>Close the record, then inspect, clean and recharge the kit and log any faults.</p></div>
+        </div>
+        <p class="fig-note"><i>Note.</i> Created by The Group (2026), informed by YAC (n.d.-b) and Garmin (2025).</p>
+      </figure>
+    </div>
+  </section>
+  <section class="sec white">
+    <div class="wrap stack">
+      <h2>Trip assessment and tier allocation</h2>
+      <p class="prose">Rangers ask the same questions about every requested trip (Figure 8), and the answers set the tier (Table 5). Hazards and trip length can raise the tier. These rules are a proposal for YAC and the Rangers to review and adjust.</p>
+      <figure class="fig">
+        <div class="fig-label"><b>Figure 8</b><i>Trip assessment and tier allocation flowchart</i></div>
+        <div class="diagram">
+          <svg viewBox="0 0 760 500" role="img" aria-labelledby="f8t">
+            <title id="f8t">Flowchart. A requested trip is first checked for approval; unapproved trips are not permitted. Approved trips near base with help readily reachable get Tier 1. Otherwise, trips with reliable contact and a credible assistance arrangement get Tier 2. All others get Tier 3. Hazards and trip length can raise the tier.</title>
+            <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5C6A75"/></marker></defs>
+            <g stroke="#5C6A75" stroke-width="1.8" fill="none" marker-end="url(#ah)">
+              <path d="M380 58V86"/>
+              <path d="M530 116H566"/>
+              <path d="M380 146V178"/>
+              <path d="M230 208H206"/>
+              <path d="M380 238V270"/>
+              <path d="M230 300H206"/>
+              <path d="M380 330V362"/>
+            </g>
+            <g font-size="12" font-weight="700" fill="#3F4D59">
+              <text x="538" y="108">No</text><text x="388" y="168">Yes</text>
+              <text x="208" y="200">Yes</text><text x="388" y="260">No</text>
+              <text x="208" y="292">Yes</text><text x="388" y="352">No</text>
+            </g>
+            <rect x="280" y="14" width="200" height="44" rx="22" fill="#143F61"/>
+            <text x="380" y="41" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Visitor requests a trip</text>
+            <rect x="230" y="86" width="300" height="60" rx="10" fill="#EEF4F4" stroke="#143F61" stroke-width="1.5"/>
+            <text x="380" y="121" text-anchor="middle" font-size="14" font-weight="700" fill="#143F61">Is the destination approved?</text>
+            <rect x="566" y="86" width="180" height="60" rx="10" fill="#F1F3F4" stroke="#8A97A1" stroke-width="1.5"/>
+            <text x="656" y="112" text-anchor="middle" font-size="12.5" font-weight="700" fill="#3F4D59">Not permitted</text>
+            <text x="656" y="130" text-anchor="middle" font-size="11.5" fill="#3F4D59">Rangers suggest an alternative</text>
+            <rect x="230" y="178" width="300" height="60" rx="10" fill="#EEF4F4" stroke="#143F61" stroke-width="1.5"/>
+            <text x="380" y="203" text-anchor="middle" font-size="13.5" font-weight="700" fill="#143F61">Near base, monitored, and</text>
+            <text x="380" y="222" text-anchor="middle" font-size="13.5" font-weight="700" fill="#143F61">help readily reachable?</text>
+            <rect x="16" y="178" width="190" height="60" rx="10" fill="#009E82"/>
+            <text x="111" y="203" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">Tier 1</text>
+            <text x="111" y="222" text-anchor="middle" font-size="11.5" fill="#fff">Guide + trip record</text>
+            <rect x="230" y="270" width="300" height="60" rx="10" fill="#EEF4F4" stroke="#143F61" stroke-width="1.5"/>
+            <text x="380" y="295" text-anchor="middle" font-size="13.5" font-weight="700" fill="#143F61">Reliable contact and a credible</text>
+            <text x="380" y="314" text-anchor="middle" font-size="13.5" font-weight="700" fill="#143F61">assistance arrangement?</text>
+            <rect x="16" y="270" width="190" height="60" rx="10" fill="#B87414"/>
+            <text x="111" y="295" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">Tier 2</text>
+            <text x="111" y="314" text-anchor="middle" font-size="11.5" fill="#fff">+ strobe, whistle, power</text>
+            <rect x="280" y="362" width="200" height="60" rx="10" fill="#C4472B"/>
+            <text x="380" y="387" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">Tier 3</text>
+            <text x="380" y="406" text-anchor="middle" font-size="11.5" fill="#fff">+ two-way satellite messenger</text>
+            <rect x="16" y="444" width="730" height="42" rx="10" fill="none" stroke="#B87414" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="381" y="470" text-anchor="middle" font-size="12.5" fill="#3F4D59">Hazards and trip length can raise the tier, for example boating, overnight or wet-weather trips.</text>
+          </svg>
+        </div>
+        <p class="fig-note"><i>Note.</i> Created by The Group (2026), informed by EWB Australia (2026, pp. 32, 38). Proposed rules; local review and field validation pending.</p>
+      </figure>
+      <div class="fig">
+        <div class="fig-label"><b>Table 5</b><i>The three-tier scope</i></div>
+        <div class="tbl-wrap">
+          <table class="t">
+            <thead><tr><th>Tier</th><th>Proposed trip conditions</th><th>Equipment</th></tr></thead>
+            <tbody>
+              <tr><td><span class="chip t1"><span class="d"></span>Tier 1 · Near base</span></td><td>Approved, monitored activity with help readily reachable</td><td>Printed visitor guide; trip record (departure and return)</td></tr>
+              <tr><td><span class="chip t2"><span class="d"></span>Tier 2 · Away from base</span></td><td>Approved trip with a credible existing assistance arrangement</td><td>Tier 1 plus strobe, whistle, power bank and pouch</td></tr>
+              <tr><td><span class="chip t3"><span class="d"></span>Tier 3 · Remote or unmonitored</span></td><td>No reliable terrestrial contact, or a long delay before help</td><td>Tier 2 plus a two-way satellite messenger</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap stack">
+      <h2>What each item does</h2>
+      <div class="fig">
+        <div class="fig-label"><b>Table 6</b><i>Equipment purpose and limits</i></div>
+        <div class="tbl-wrap">
+          <table class="t">
+            <thead><tr><th>Item</th><th>Purpose</th><th>Important limit</th></tr></thead>
+            <tbody>
+              <tr><td>Printed guide</td><td>Access rules, hazards and agreed emergency steps</td><td>Must be updated regularly</td></tr>
+              <tr><td>Trip log</td><td>Records the party leader, number of people, destination and each check-in sent (day, time and place)</td><td>A paper record only; it raises no alarm, so a named person must still watch the due-back time</td></tr>
+              <tr><td>Whistle</td><td>Audible signal to people nearby</td><td>No long-distance distress signal</td></tr>
+              <tr><td>Strobe torch (Wuben X1 Pro)</td><td>Strobe and SOS flashing to help searchers locate a person; also a 9,600 mAh power bank (Nick, 2025; Wuben, n.d.)</td><td>Needs line of sight and a charge; rated IP65, so not for use under water (Wuben, n.d.)</td></tr>
+              <tr><td>Power bank</td><td>Recharges compatible equipment</td><td>Limited capacity; kept for emergency charging</td></tr>
+              <tr><td>Satellite messenger (Tier 3)</td><td>Two-way messages, check-ins and SOS with position</td><td>Needs open sky and an active service plan (Garmin, 2025)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec white">
+    <div class="wrap split">
+      <div class="prose">
+        <h2>Tier 3: the two-way satellite messenger</h2>
+        <p>The Garmin inReach Messenger is the procurement benchmark (Figure 9). Two-way messaging lets a visitor send their position and situation and receive a reply, rather than only triggering an alarm. Check-ins and SOS run on the device, so no phone is needed (Garmin, 2025). Any equivalent device YAC approves could be used.</p>
+        <h2 style="margin-top:1.4em">Why radio is not included</h2>
+        <p>Ranger vehicles use VHF radio, but the radios visitors can use without an individual licence are UHF CB, and the two bands do not interoperate (ACMA, 2025, 2026; EWB Australia, 2026, p. 38). Radio should only be added once YAC confirms permissions, a monitored receiver and two-way coverage along approved routes.</p>
+      </div>
+      <figure class="fig" style="max-width:360px">
+        <div class="fig-label"><b>Figure 9</b><i>Two-way satellite messenger used as the Tier 3 benchmark</i></div>
+        <img src="img/messenger.webp" alt="Garmin inReach Messenger: a compact dark grey satellite messenger with a small screen below the Garmin logo" loading="lazy" width="330" height="442" style="background:var(--page);padding:18px 30px">
+        <p class="fig-note"><i>Note.</i> Garmin inReach Messenger. From <i>Garmin inReach Messenger</i>, by Garmin (n.d.-b). Copyright Garmin. The device measures about 79 × 64 mm and weighs 114 g (Garmin, 2022).</p>
+      </figure>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap prose">
+      <h2>Reserve, maintenance and trip data</h2>
+      <p>One complete Tier 3 kit is kept charged as a reserve, and faulty equipment is quarantined until checked. Issuing the reserve in busy periods removes the ready replacement, and no reserve can fix a failure already in the field. Trip records hold personal information, so access is restricted and a retention period is agreed with YAC (Office of the Australian Information Commissioner [OAIC], 2018).</p>
+    </div>
+  </section>
+  <section class="sec white">
+    <div class="wrap stack">
+      <h2>Community concerns and responses</h2>
+      <div>
+        <details class="cg"><summary>Will this add to the Rangers' workload?</summary><div class="body">Issue and reset follow a one-page procedure, and the pilot measures the real time per issue before any expansion.</div></details>
+        <details class="cg"><summary>Who decides where visitors can go and which tier they get?</summary><div class="body">YAC and the Rangers. The tier rules here are a starting point for local review.</div></details>
+        <details class="cg"><summary>Does logging trips intrude on privacy or cultural knowledge?</summary><div class="body">Only the route, due-back time and kit ID are recorded, and access is restricted (OAIC, 2018). The guide shows restricted boundaries without describing cultural sites.</div></details>
+        <details class="cg"><summary>What happens if a kit is lost or damaged?</summary><div class="body">Faulty kits are swapped for the reserve. Any bond or charge needs YAC approval and an affordability assessment.</div></details>
+        <details class="cg"><summary>Does this replace the Ranger briefing?</summary><div class="body">No. The kit and the teach-back step strengthen the briefing.</div></details>
+      </div>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#selection">← Design selection</a><a class="btn outline" href="#prototype">Next: Prototype →</a></div></section>
+</section>
+
+<!-- PROTOTYPE -->
+<section class="page" id="p-prototype" data-route="prototype">
+  <div class="banner titleonly">
+    <div class="wrap"><p class="eyebrow">Prototype</p><h1>Prototyping</h1></div>
+  </div>
+  <section class="sec">
+    <div class="wrap split">
+      <div class="prose">
+        <h2>What was prototyped and why</h2>
+        <p>The devices are proven products, so the riskiest part of the design is the handover: whether visitors understand the guide after a short briefing, whether issue and reset fit a Ranger's workload, and whether different Rangers give the same trip the same tier. A low-cost physical prototype was built to explore these three questions.</p>
+      </div>
+      <div class="prose">
+        <h2>How it was built</h2>
+        <p>Each device was printed from a product image on A4 paper, glued to cardboard and cut out: the Wuben X1 Pro strobe torch, the 10,000 mAh power bank, the whistle and the Garmin inReach Messenger. The pieces were printed at the same size to fit the page, so they are not to scale. The visitor guide and trip log were drawn by hand on card, and everything is carried in a real navy zip pouch (Figure 10). This let the team rehearse issuing, briefing and returning a full Tier 3 kit without buying the equipment.</p>
+        <figure class="fig">
+          <div class="fig-label"><b>Figure 10</b><i>Cardboard prototype of the Tier 3 kit</i></div>
+          <img src="img/prototype-kit.webp" alt="Cardboard prototype of the Tier 3 kit in front of a navy zip pouch: a hand-drawn visitor guide and trip log, and cardboard cut-outs of a Wuben X1 Pro strobe torch, a 10,000 mAh power bank, a whistle and a Garmin inReach Messenger" loading="lazy" width="1200" height="675">
+          <p class="fig-note"><i>Note.</i> Photo by The Group (2026).</p>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <section class="sec white">
+    <div class="wrap stack">
+      <h2>Explore the kits in 3D</h2>
+      <figure class="fig">
+        <div class="fig-label"><b>Figure 11</b><i>Interactive 3D model of the three equipment tiers</i></div>
+        <div class="viewer">
+          <div class="viewer-tabs" role="group" aria-label="Choose a tier">
+            <button class="vt" aria-pressed="false" data-tier="1" type="button"><span class="d" style="background:var(--t1)"></span>Tier 1</button>
+            <button class="vt" aria-pressed="false" data-tier="2" type="button"><span class="d" style="background:var(--t2)"></span>Tier 2</button>
+            <button class="vt" aria-pressed="true" data-tier="3" type="button"><span class="d" style="background:var(--t3)"></span>Tier 3</button>
+          </div>
+          <div class="viewer-body">
+            <div id="mvHost"></div>
+            <div class="vlegend"><span class="small muted">Drag to rotate · scroll or pinch to zoom</span><ol id="mvLegend"></ol></div>
+          </div>
+        </div>
+        <p class="fig-note"><i>Note.</i> Created by The Group (2026) with AI assistance (Anthropic, 2026). The kits follow the cardboard prototype (Figure 10), with each item modelled at the published size of the product costed in Table 9: the Wuben X1 Pro, 138 × 60 × 29 mm (Nick, 2025); the 10,000 mAh power bank, 144 × 70 × 16 mm (BIG W, n.d.); the Garmin inReach Messenger, about 79 × 64 mm (Garmin, 2022); a Fox 40 Micro whistle (Whitworths Marine &amp; Leisure, n.d.); A6 guide and trip log cards; and a navy zip pouch like the prototype's (Kmart, n.d.-a).</p>
+      </figure>
+      <figure class="fig">
+        <div class="fig-label"><b>Figure 12</b><i>Concept renders of the Tier 1, Tier 2 and Tier 3 kits</i></div>
+        <div class="carousel">
+          <div class="car-stage" id="carStage">
+            <img src="img/render-t1.webp" alt="Concept render of the Tier 1 kit: a pouch and a printed visitor guide" class="on" width="860" height="553">
+            <img src="img/render-t2.webp" alt="Concept render of the Tier 2 kit: pouch, visitor guide, whistle, power bank, cable and strobe torch" width="860" height="562">
+            <img src="img/render-t3.webp" alt="Concept render of the Tier 3 kit: Tier 2 items plus a satellite messenger" width="860" height="566">
+          </div>
+          <div class="car-ctl">
+            <button type="button" id="carPrev" aria-label="Previous image">‹</button>
+            <div class="dots" id="carDots"></div>
+            <button type="button" id="carNext" aria-label="Next image">›</button>
+          </div>
+          <p class="car-cap" id="carCap">Tier 1</p>
+        </div>
+        <p class="fig-note"><i>Note.</i> Concept renders from the team's final presentation, created by The Group (2026) with assistance from Microsoft Copilot (Microsoft, 2026). Illustrative only.</p>
+      </figure>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#design">← Detailed design</a><a class="btn outline" href="#implementation">Next: Implementation plan →</a></div></section>
+</section>
+
+<!-- IMPLEMENTATION -->
+<section class="page" id="p-implementation" data-route="implementation">
+  <div class="banner bg-aerial">
+    <div class="wrap"><p class="eyebrow">Delivery</p><h1>Implementation plan</h1></div>
+    <span class="credit">Photo: EWB Australia (2026, p. 18)</span>
+  </div>
+  <section class="sec">
+    <div class="wrap stack">
+      <p class="prose">Implementation is staged around the seasons. Planning happens during the wet season when visitation stops, equipment arrives once roads reopen in mid-April, and the pilot runs through one full dry season (Figure 13; EWB Australia, 2026, p. 27). Local approval and equipment tests come before any visitor is issued a kit.</p>
+      <figure class="fig">
+        <div class="fig-label"><b>Figure 13</b><i>Proposed implementation timeline, November 2026 to November 2027</i></div>
+        <div class="tl">
+          <div class="tl-grid" id="tlGrid"></div>
+          <div class="tl-key"><span>Wet season, park closed (mid-Nov to mid-Apr)</span></div>
+        </div>
+        <p class="fig-note"><i>Note.</i> Created by The Group (2026). Phases from the team's final presentation; season dates from EWB Australia (2026, p. 27).</p>
+      </figure>
+    </div>
+  </section>
+  <section class="sec white">
+    <div class="wrap stack">
+      <h2>Who does what</h2>
+      <div class="fig">
+        <div class="fig-label"><b>Table 7</b><i>Roles and responsibilities</i></div>
+        <div class="tbl-wrap">
+          <table class="t">
+            <thead><tr><th>Who</th><th>Role in the system</th></tr></thead>
+            <tbody>
+              <tr><td>Yintjingga Aboriginal Corporation</td><td>Approves destinations, tier rules and data handling; owns the equipment and records; decides on charges and expansion</td></tr>
+              <tr><td>Lama Lama Rangers</td><td>Assess trips, issue and reset kits, monitor due returns and follow up overdue trips</td></tr>
+              <tr><td>Visitors</td><td>Carry the kit, follow the guide, check in and return on time</td></tr>
+              <tr><td>Community health contact and RFDS</td><td>Existing emergency response and evacuation (EWB Australia, 2026, pp. 23, 29; Royal Flying Doctor Service [RFDS], n.d.)</td></tr>
+              <tr><td>Suppliers</td><td>Satellite service and equipment warranty (Garmin, n.d.-a; BCF, n.d.)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap grid2">
+      <div class="prose">
+        <h2>Training</h2>
+        <p>Rangers learn the system from a one-page procedure and a hands-on demonstration, then practise the teach-back briefing. A short refresher at the start of each dry season matters because funding cycles mean Ranger teams change between seasons (EWB Australia, 2026, p. 37). The first session (about four hours for four Rangers) and each two-hour refresher are costed in Tables 10 and 11.</p>
+        <h2 style="margin-top:1.4em">Evaluation</h2>
+        <p>The pilot records issue and reset time, teach-back pass rate, overdue returns and follow-ups, equipment faults, messages and SOS events, and visitor feedback. YAC reviews these at the end of the season before deciding on quantities or expansion.</p>
+      </div>
+      <div class="prose">
+        <h2>Ownership and repair</h2>
+        <p>YAC owns the equipment and the records, and the Rangers can change the tier rules and guide as they learn. When something fails, the kit is quarantined and swapped for the reserve, warranty claims go through the retailer, and consumables such as batteries are replaced from spares held at base.</p>
+      </div>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#prototype">← Prototype</a><a class="btn outline" href="#costs">Next: Cost analysis →</a></div></section>
+</section>
+
+<!-- COSTS -->
+<section class="page" id="p-costs" data-route="costs">
+  <div class="banner titleonly">
+    <div class="wrap"><p class="eyebrow">Delivery</p><h1>Cost analysis</h1></div>
+  </div>
+  <section class="sec">
+    <div class="wrap stack">
+      <p class="prose">Costs are in Australian dollars, checked on 8 October 2026. The Tier 3 messenger drives the recurring cost (Table 8). The pilot covers three Tier 2 kits, one issued Tier 3 kit and one Tier 3 reserve, plus training for the Rangers who will run it (Table 9). Ranger time is costed at a planning rate of $45 per hour, which allows for skilled pay, superannuation and on-costs above the national minimum wage of $26.44 per hour (Fair Work Ombudsman, 2026). YAC should replace it with its own rates.</p>
+      <div class="grid2">
+        <div class="fig">
+          <div class="fig-label"><b>Table 8</b><i>Tier 3 satellite messenger cost baseline</i></div>
+          <div class="tbl-wrap">
+            <table class="t" style="min-width:320px">
+              <thead><tr><th>Cost item</th><th class="num">Planning baseline</th></tr></thead>
+              <tbody>
+                <tr><td>Hardware (BCF, n.d.)</td><td class="num">$499 per device</td></tr>
+                <tr><td>Professional Basic plan</td><td class="num">$35 per active month</td></tr>
+                <tr><td>Activation</td><td class="num">$70 per device</td></tr>
+                <tr><td>Suspension</td><td class="num">$9 per month</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="fig-note"><i>Note.</i> Plan prices from Garmin (n.d.-a); hardware price from BCF (n.d.).</p>
+        </div>
+        <div class="fig">
+          <div class="fig-label"><b>Table 9</b><i>Illustrative first-year pilot cost</i></div>
+          <div class="tbl-wrap">
+            <table class="t" style="min-width:320px">
+              <thead><tr><th>Budget line</th><th class="num">AUD</th></tr></thead>
+              <tbody>
+                <tr><td>2 messengers + activation, 2 × ($499 + $70)</td><td class="num">1,138.00</td></tr>
+                <tr><td>Service, 6 active + 6 suspended months, 2 × (6 × $35 + 6 × $9)</td><td class="num">528.00</td></tr>
+                <tr><td>5 accessory bundles at $277.89 (Appendix C)</td><td class="num">1,389.45</td></tr>
+                <tr><td>Materials, setup and delivery</td><td class="num">420.00</td></tr>
+                <tr><td>Ranger training, 4 Rangers × 4 h × $45</td><td class="num">720.00</td></tr>
+                <tr><td>Subtotal</td><td class="num">4,195.45</td></tr>
+                <tr><td>Contingency (15%)</td><td class="num">629.32</td></tr>
+                <tr class="total"><td>First-year total</td><td class="num">4,824.77</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="fig-note"><i>Note.</i> Accessory prices from BIG W (n.d.), Kmart (n.d.-a, n.d.-b), Whitworths Marine &amp; Leisure (n.d.) and Wuben (n.d.); the bundle is broken down in Appendix C. The materials line is a team allowance. Training uses the $45 per hour planning rate.</p>
+        </div>
+      </div>
+      <figure class="fig">
+        <div class="fig-label"><b>Figure 14</b><i>First-year pilot cost by budget line (AUD; total $4,825)</i></div>
+        <div class="bars" id="costChart"></div>
+        <p class="fig-note"><i>Note.</i> Created by The Group (2026) from the values in Table 9.</p>
+      </figure>
+    </div>
+  </section>
+  <section class="sec white">
+    <div class="wrap stack">
+      <h2>Beyond the pilot</h2>
+      <p class="prose">After the first year, the system costs about $1,465 per year: $528 for satellite service on two devices (six active and six suspended months each), a $360 refresher training session, a replacement reserve and Ranger time to issue and reset kits (Table 10).</p>
+      <div class="fig">
+        <div class="fig-label"><b>Table 10</b><i>Three-year cost view</i></div>
+        <div class="tbl-wrap">
+          <table class="t">
+            <thead><tr><th>Cost</th><th class="num">Year 1</th><th class="num">Year 2</th><th class="num">Year 3</th></tr></thead>
+            <tbody>
+              <tr><td>Pilot setup, equipment and initial training (Table 9)</td><td class="num">4,824.77</td><td class="num">–</td><td class="num">–</td></tr>
+              <tr><td>Satellite service, two devices</td><td class="num">in Year 1 total</td><td class="num">528.00</td><td class="num">528.00</td></tr>
+              <tr><td>Refresher training, 4 Rangers × 2 h × $45</td><td class="num">in Year 1 total</td><td class="num">360.00</td><td class="num">360.00</td></tr>
+              <tr><td>Replacements and consumables, 10% of hardware</td><td class="num">–</td><td class="num">238.75</td><td class="num">238.75</td></tr>
+              <tr><td>Ranger time to issue and reset kits, 30 loans × 15 min × $45</td><td class="num">337.50</td><td class="num">337.50</td><td class="num">337.50</td></tr>
+              <tr class="total"><td>Total</td><td class="num">5,162.27</td><td class="num">1,464.25</td><td class="num">1,464.25</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fig-note"><i>Note.</i> Created by The Group (2026). Planning assumptions: about 30 kit loans per dry season, from EWB's estimate of fewer than 10 tourists a week (Todio, n.d.) with about three people per party and half the parties travelling beyond the base; 15 minutes per loan, allowing under 5 minutes to issue a kit and under 10 minutes to reset it; a replacement reserve of 10% of the $2,387.45 hardware value per year; and the $45 per hour planning rate. YAC should replace these with pilot data.</p>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap grid2">
+      <div class="prose">
+        <h2>Funding</h2>
+        <p>YAC-approved seed funding or sponsorship can cover the pilot, and Indigenous Rangers Program eligibility should be assessed for ongoing costs (National Indigenous Australians Agency [NIAA], n.d.). Any visitor charge for kits needs YAC approval and an affordability assessment. Better payment systems could also lift fee revenue, which the YAC Chair expects could double (EWB Australia, 2026, p. 31).</p>
+      </div>
+      <div class="prose">
+        <h2>End of life</h2>
+        <p>Port Stewart has no dedicated recycling service (EWB Australia, 2026, p. 23), so worn-out electronics and batteries go back to Cairns for recycling.</p>
+      </div>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#implementation">← Implementation plan</a><a class="btn outline" href="#considerations">Next: Other considerations →</a></div></section>
+</section>
+
+<!-- OTHER CONSIDERATIONS -->
+<section class="page" id="p-considerations" data-route="considerations">
+  <div class="banner titleonly">
+    <div class="wrap"><p class="eyebrow">Delivery</p><h1>Other considerations</h1></div>
+  </div>
+  <section class="sec">
+    <div class="wrap stack">
+      <h2>Visitor journey map</h2>
+      <p class="prose">The journey map follows one visitor through the system and shows how the design responds at each stage (Figure 15).</p>
+      <figure class="fig">
+        <div class="fig-label"><b>Figure 15</b><i>Visitor journey through the Tiered Visitor Safety System</i></div>
+        <div class="tbl-wrap">
+          <table class="t" style="min-width:760px">
+            <thead><tr><th style="width:130px">Stage</th><th>Plan and book</th><th>Arrive and check in</th><th>Briefing and kit issue</th><th>On the trip</th><th>Return</th></tr></thead>
+            <tbody>
+              <tr><td><b>Visitor does</b></td><td>Books online or plans to pay cash at Running Creek</td><td>Meets a Ranger and names the destination</td><td>Hears the briefing and explains the emergency steps back</td><td>Fishes, camps or explores; checks in if on Tier 3</td><td>Returns the kit and signs off the record</td></tr>
+              <tr><td><b>Touchpoint</b></td><td>Booking confirmation</td><td>Trip assessment questions</td><td>Guide, trip record, kit</td><td>Guide, strobe, whistle, messenger</td><td>Return desk</td></tr>
+              <tr><td><b>May feel</b></td><td>Excited, unsure what to expect</td><td>Curious about the rules</td><td>Reassured, possibly rushed</td><td>Confident, or anxious if something goes wrong</td><td>Satisfied; may forget to return on time</td></tr>
+              <tr><td><b>Design response</b></td><td>Booking message explains the kit loan</td><td>Same four questions every time</td><td>Teach-back step and one-page guide</td><td>Named person watches the due-back time</td><td>Overdue follow-up; quick reset</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fig-note"><i>Note.</i> Created by The Group (2026).</p>
+      </figure>
+    </div>
+  </section>
+  <section class="sec white">
+    <div class="wrap stack">
+      <h2>Broader considerations and mitigation</h2>
+      <div class="fig">
+        <div class="fig-label"><b>Table 11</b><i>Broader design considerations and how they are mitigated</i></div>
+        <div class="tbl-wrap">
+          <table class="t">
+            <thead><tr><th>Consideration</th><th>Mitigation</th></tr></thead>
+            <tbody>
+              <tr><td>False sense of security</td><td>The guide states each item's limits plainly, and the briefing covers what the kit cannot do</td></tr>
+              <tr><td>Privacy of trip records</td><td>Minimum data, restricted access and a defined retention period (OAIC, 2018)</td></tr>
+              <tr><td>Cultural sites</td><td>Guide shows restricted boundaries without describing sites; all content approved by YAC</td></tr>
+              <tr><td>Device loss or failure</td><td>Reserve kit, quarantine and warranty; overdue follow-up still works without the device</td></tr>
+              <tr><td>Environment</td><td>Nothing is installed on Country; batteries stay out of waterways; e-waste goes to Cairns</td></tr>
+              <tr><td>Equity</td><td>Kits are a safety service; any charge is assessed for affordability</td></tr>
+              <tr><td>Wet season</td><td>Service suspended, kits stored dry and charged at base, restart check before the dry season (EWB Australia, 2026, p. 27)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#costs">← Cost analysis</a><a class="btn outline" href="#recommendations">Next: Recommendations →</a></div></section>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section class="page" id="p-recommendations" data-route="recommendations">
+  <div class="banner titleonly">
+    <div class="wrap"><p class="eyebrow">Delivery</p><h1>Recommendations</h1></div>
+  </div>
+  <section class="sec">
+    <div class="wrap prose">
+      <p>The following work sits outside this project's scope but is needed for the system to succeed:</p>
+      <ul class="kc">
+        <li>Record visitor numbers, party sizes and trip lengths for a full season to size the kit pool (Todio, n.d.).</li>
+        <li>Field-test messenger performance along each approved route, including under tree cover and on the water.</li>
+        <li>Confirm radio compatibility, licensing and a monitored receiver before adding any radio (ACMA, 2025, 2026).</li>
+        <li>Co-design the visitor guide with the Rangers, including language and cultural content approved by YAC.</li>
+        <li>Link with Opportunity 4.2, Ranger communications, so visitor and Ranger systems share devices, plans and procedures (EWB Australia, 2026, p. 38).</li>
+        <li>Assess Indigenous Rangers Program eligibility for ongoing costs (NIAA, n.d.).</li>
+      </ul>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#considerations">← Other considerations</a><a class="btn outline" href="#team">Next: Team →</a></div></section>
+</section>
+
+<!-- TEAM -->
+<section class="page" id="p-team" data-route="team">
+  <div class="banner bg-cover">
+    <div class="wrap"><p class="eyebrow">About us</p><h1>"The Group"</h1></div>
+    <span class="credit">Photo: EWB Australia (2026), cover</span>
+  </div>
+  <section class="sec">
+    <div class="wrap stack">
+      <h2>Group declaration</h2>
+      <p class="prose">Only team members who contributed directly to this website are listed. The contributions below were agreed by the whole team.</p>
+      <div class="fig">
+        <div class="fig-label"><b>Table 12</b><i>Team member contributions</i></div>
+        <div class="tbl-wrap">
+          <table class="t">
+            <thead><tr><th>Member</th><th>Research focus</th><th>Final presentation</th><th>Website contribution</th></tr></thead>
+            <tbody>
+              <tr><td>Varun Ramesh Alinkeel</td><td>Tourism and community context</td><td>Acknowledgement, safety gap</td><td>Detailed design; compiled and checked the reference list and APA 7 formatting</td></tr>
+              <tr><td>Majed Abou Lokme</td><td>Visitor access and tier design</td><td>Demand, design choice, tier scope</td><td>Project details and Background; Executive summary, Cost analysis, Other considerations and journey map, and Recommendations; checked word count and consistency</td></tr>
+              <tr><td>Ariq Izyaan Syed</td><td>Communications and device research</td><td>Trip assessment, equipment, radio</td><td>Prototyping; maintained the figure and table register; reviewed the website against the rubric</td></tr>
+              <tr><td>Ricky Ngo</td><td>Emergency workflow and training</td><td>Satellite messenger, workflow, reserve</td><td>Problem and design criteria, and Implementation plan; reviewed respectful language and community-focused content</td></tr>
+              <tr><td>Viet Anh Nguyen</td><td>Hazards, prototype and costing</td><td>Prototype, implementation, costs</td><td class="todo" data-todo="team-contributions">[Add pages written and edited]</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sec white"><div class="wrap pager"><a class="btn outline" href="#recommendations">← Recommendations</a><a class="btn outline" href="#references">Next: References →</a></div></section>
+</section>
+
+<!-- REFERENCES -->
+<section class="page" id="p-references" data-route="references">
+  <div class="banner titleonly">
+    <div class="wrap"><p class="eyebrow">Sources</p><h1>References</h1></div>
+  </div>
+  <section class="sec">
+    <div class="wrap refs prose">
+      <p>Anthropic. (2026). <i>Claude</i> (Opus 5.5 version) [Large language model]. <a href="https://claude.ai/" target="_blank" rel="noopener">https://claude.ai/</a></p>
+      <p>Australian Communications and Media Authority. (2025, October 1). <i>Citizen band radio stations class licence</i>. <a href="https://www.acma.gov.au/licences/citizen-band-radio-stations-class-licence" target="_blank" rel="noopener">https://www.acma.gov.au/licences/citizen-band-radio-stations-class-licence</a></p>
+      <p>Australian Communications and Media Authority. (2026, January 22). <i>Land mobile licence</i>. <a href="https://www.acma.gov.au/licences/land-mobile-licence" target="_blank" rel="noopener">https://www.acma.gov.au/licences/land-mobile-licence</a></p>
+      <p>Australian Maritime Safety Authority. (n.d.). <i>Using your beacon</i>. <a href="https://beacons.amsa.gov.au/activation/" target="_blank" rel="noopener">https://beacons.amsa.gov.au/activation/</a></p>
+      <p>BCF. (n.d.). <i>Garmin inReach Messenger</i>. Retrieved October 8, 2026, from <a href="https://www.bcf.com.au/p/garmin-inreach-messenger/747724.html" target="_blank" rel="noopener">https://www.bcf.com.au/p/garmin-inreach-messenger/747724.html</a></p>
+      <p>BIG W. (n.d.). <i>Cygnett GO powerbank 10K—Black</i>. Retrieved October 28, 2026, from <a href="https://www.bigw.com.au/product/cygnett-go-powerbank-10k-black/p/6014164" target="_blank" rel="noopener">https://www.bigw.com.au/product/cygnett-go-powerbank-10k-black/p/6014164</a></p>
+      <p>Cornell, S., Brander, R. W., &amp; Peden, A. E. (2024). Likes, comments, and emergency responses: Exploring the burden of social media tourism on land managers and the need for risk communication. <i>Health Literacy and Communication Open, 2</i>(1), Article 2313846. <a href="https://doi.org/10.1080/28355245.2024.2313846" target="_blank" rel="noopener">https://doi.org/10.1080/28355245.2024.2313846</a></p>
+      <p>Department of the Environment, Tourism, Science and Innovation. (2026, June 12). <i>General safety</i>. Parks and Forests. <a href="https://parks.qld.gov.au/before-you-visit/visit-with-care/general-safety" target="_blank" rel="noopener">https://parks.qld.gov.au/before-you-visit/visit-with-care/general-safety</a></p>
+      <p>Dobson, G. P., Gibbs, C., Poole, L., Butson, B., Lawton, L. D., Morris, J. L., &amp; Letson, H. L. (2022). Trauma care in the tropics: Addressing gaps in treating injury in rural and remote Australia. <i>Rural and Remote Health, 22</i>(1), Article 6928. <a href="https://doi.org/10.22605/RRH6928" target="_blank" rel="noopener">https://doi.org/10.22605/RRH6928</a></p>
+      <p>Engineers Without Borders Australia. (2026). <i>2026 EWB Challenge design brief: Port Stewart, Lama Lama</i>. <a href="https://ewbchallenge.org/challenge/port-stewart-lama-lama/" target="_blank" rel="noopener">https://ewbchallenge.org/challenge/port-stewart-lama-lama/</a></p>
+      <p>Fair Work Ombudsman. (2026). <i>Minimum wages increase from 1 July 2026</i>. Retrieved October 26, 2026, from <a href="https://www.fairwork.gov.au/about-us/workplace-laws/annual-wage-review/annual-wage-review-2026" target="_blank" rel="noopener">https://www.fairwork.gov.au/about-us/workplace-laws/annual-wage-review/annual-wage-review-2026</a></p>
+      <p>Garmin. (n.d.-a). <i>Critical information summary: inReach Professional Flex subscription plans purchased on or after September 18, 2024</i>. Retrieved October 8, 2026, from <a href="https://yarmarketing.blob.core.windows.net/web/pages/AU/inReach_Critical_Info_Summary-Professional_Subscription_Plans-New.pdf" target="_blank" rel="noopener">https://yarmarketing.blob.core.windows.net/web/pages/AU/inReach_Critical_Info_Summary-Professional_Subscription_Plans-New.pdf</a></p>
+      <p>Garmin. (n.d.-b). <i>Garmin inReach Messenger</i>. Retrieved October 28, 2026, from <a href="https://www.garmin.com/en-AU/p/793265" target="_blank" rel="noopener">https://www.garmin.com/en-AU/p/793265</a></p>
+      <p>Garmin. (2022, September 27). <i>Garmin inReach Messenger: Easy-to-use satellite communicator provides messaging and security when outside of cellular coverage</i> [Press release]. <a href="https://www.garmin.com/en-US/newsroom/press-release/outdoor/garmin-inreach-messenger-easy-to-use-satellite-communicator-provides-messaging-and-security-when-outside-of-cellular-coverage/" target="_blank" rel="noopener">https://www.garmin.com/en-US/newsroom/press-release/outdoor/garmin-inreach-messenger-easy-to-use-satellite-communicator-provides-messaging-and-security-when-outside-of-cellular-coverage/</a></p>
+      <p>Garmin. (2025). <i>inReach Messenger owner's manual</i> (Version 5). <a href="https://www8.garmin.com/manuals/webhelp/GUID-5919E4DF-BE2C-4897-AE03-3BF5B0AD3ACA/EN-US/inReach_Messenger_OM_EN-US.pdf" target="_blank" rel="noopener">https://www8.garmin.com/manuals/webhelp/GUID-5919E4DF-BE2C-4897-AE03-3BF5B0AD3ACA/EN-US/inReach_Messenger_OM_EN-US.pdf</a></p>
+      <p>Google. (n.d.). [Google Maps location of Port Stewart, Queensland]. Retrieved October 28, 2026, from <a href="https://maps.google.com/?q=Port+Stewart+QLD+4892" target="_blank" rel="noopener">https://maps.google.com/?q=Port+Stewart+QLD+4892</a></p>
+      <p>Kmart. (n.d.-a). <i>OXX cosmetics travel bag – navy</i>. Retrieved October 28, 2026, from <a href="https://www.kmart.com.au/product/oxx-cosmetics-travel-bag-navy-43656684/" target="_blank" rel="noopener">https://www.kmart.com.au/product/oxx-cosmetics-travel-bag-navy-43656684/</a></p>
+      <p>Kmart. (n.d.-b). <i>USB-C to USB-C cable – 1m, black</i>. Retrieved October 28, 2026, from <a href="https://www.kmart.com.au/product/usb-c-to-usb-c-cable-1m-black-43234264/" target="_blank" rel="noopener">https://www.kmart.com.au/product/usb-c-to-usb-c-cable-1m-black-43234264/</a></p>
+      <p>Matson, T. (2020). <i>Imagining the future for Indigenous eco-tourism: Cape York and Torres Strait</i> (Report commissioned by the Torres Cape Indigenous Councils Alliance). Matson &amp; Ridley Pty Ltd. <a href="https://tcica.com.au/wp-content/uploads/2021/09/final-tcica-tourism-report-inc-stage-2-min.pdf" target="_blank" rel="noopener">https://tcica.com.au/wp-content/uploads/2021/09/final-tcica-tourism-report-inc-stage-2-min.pdf</a></p>
+      <p>Microsoft. (2026). <i>Microsoft Copilot</i> [Large language model]. <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">https://copilot.microsoft.com/</a></p>
+      <p>Nick. (2025, October). Wuben X1 Pro review: Cree XHP50.3 multipurpose EDC with 25,600 cd. <i>1Lumen</i>. <a href="https://1lumen.com/review/wuben-x1-pro/" target="_blank" rel="noopener">https://1lumen.com/review/wuben-x1-pro/</a></p>
+      <p>National Indigenous Australians Agency. (n.d.). <i>Indigenous Rangers Program (IRP)</i>. <a href="https://www.niaa.gov.au/our-work/environment-and-land/indigenous-rangers-program-irp" target="_blank" rel="noopener">https://www.niaa.gov.au/our-work/environment-and-land/indigenous-rangers-program-irp</a></p>
+      <p>Office of the Australian Information Commissioner. (2018, June 5). <i>Guide to securing personal information</i>. <a href="https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/handling-personal-information/guide-to-securing-personal-information" target="_blank" rel="noopener">https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/handling-personal-information/guide-to-securing-personal-information</a></p>
+      <p>Royal Flying Doctor Service (Queensland Section). (n.d.). <i>What we do</i>. Retrieved August 21, 2026, from <a href="https://www.flyingdoctor.org.au/qld/what-we-do/" target="_blank" rel="noopener">https://www.flyingdoctor.org.au/qld/what-we-do/</a></p>
+      <p>Todio, E. (n.d.). <i>Reply to: Number of tourists/visitors through the year</i> [Online forum post]. EWB Challenge. <a href="https://ewbchallenge.org/forums/topic/number-of-tourists-visitors-through-the-year/" target="_blank" rel="noopener">https://ewbchallenge.org/forums/topic/number-of-tourists-visitors-through-the-year/</a></p>
+      <p>Whitworths Marine &amp; Leisure. (n.d.). <i>Fox 40 pealess micro safety whistle</i>. Retrieved October 8, 2026, from <a href="https://www.whitworths.com.au/fox-40-pealess-micro-safety-whistle" target="_blank" rel="noopener">https://www.whitworths.com.au/fox-40-pealess-micro-safety-whistle</a></p>
+      <p>Wuben. (n.d.). <i>Wuben X1Pro 12300 lumens rechargeable power bank EDC flashlight</i>. Retrieved October 28, 2026, from <a href="https://wuben.au/products/wuben-x1pro-12300-lumens-rechargeable-power-bank-edc-flashlight" target="_blank" rel="noopener">https://wuben.au/products/wuben-x1pro-12300-lumens-rechargeable-power-bank-edc-flashlight</a></p>
+      <p>Yintjingga Aboriginal Corporation. (n.d.-a). <i>Lama Lama rangers</i>. <a href="https://www.lamalama.org.au/lama-lama-rangers/" target="_blank" rel="noopener">https://www.lamalama.org.au/lama-lama-rangers/</a></p>
+      <p>Yintjingga Aboriginal Corporation. (n.d.-b). <i>Visiting</i>. <a href="https://www.lamalama.org.au/visiting/" target="_blank" rel="noopener">https://www.lamalama.org.au/visiting/</a></p>
+    </div>
+  </section>
+</section>
+
+<!-- APPENDICES -->
+<section class="page" id="p-appendices" data-route="appendices">
+  <div class="banner titleonly">
+    <div class="wrap"><p class="eyebrow">Supporting documentation</p><h1>Appendices</h1></div>
+  </div>
+  <section class="sec">
+    <div class="wrap stack">
+      <div>
+        <details class="cg"><summary>Appendix A: Group charter</summary><div class="body"><p>Summary of the group charter completed in Week 2 (contact details removed).</p><ul class="kc"><li><b>Group name:</b> "The Group".</li><li><b>Members:</b> Majed Abou Lokme, Ariq Izyaan Syed, Ricky Ngo, Viet Anh Nguyen and Varun Ramesh Alinkeel.</li><li><b>Goal:</b> complete the work collaboratively.</li><li><b>What members value in group work:</b> dividing and distributing the workload, helping each other, and keeping it enjoyable.</li><li><b>What members wanted to avoid:</b> poor management of the work, a stressful or toxic environment, and not being on the same page.</li><li><b>What makes a good team player:</b> good communication and everyone doing their part.</li><li><b>Target grade:</b> High Distinction.</li></ul><p class="todo" data-todo="appendix-a">[Add a link to the full charter if the team wants to include it.]</p></div></details>
+        <details class="cg"><summary>Appendix B: Meeting minutes</summary><div class="body"><p>Minutes of each team meeting, newest first, with the date, attendees, decisions and actions.</p><p class="todo" data-todo="appendix-b">[Add links to the minutes.]</p></div></details>
+        <details class="cg"><summary>Appendix C: Cost workings</summary><div class="body"><p>Breakdown of the $277.89 accessory bundle used in Table 9 (prices checked 28 October 2026).</p><div class="tbl-wrap"><table class="t"><thead><tr><th>Item</th><th>Product</th><th class="num">AUD</th><th>Source</th></tr></thead><tbody><tr><td>Strobe torch</td><td>Wuben X1 Pro, 9,600 mAh, strobe and SOS modes (sale price; RRP $245.99)</td><td class="num">199.99</td><td>Wuben (n.d.)</td></tr><tr><td>Whistle</td><td>Fox 40 Micro pealess safety whistle, with lanyard</td><td class="num">14.95</td><td>Whitworths Marine &amp; Leisure (n.d.)</td></tr><tr><td>Power bank</td><td>Cygnett GO 10K (2 × USB-C, 1 × USB-A)</td><td class="num">39.95</td><td>BIG W (n.d.)</td></tr><tr><td>Pouch</td><td>OXX navy zip travel bag, 25 × 15 × 14 cm</td><td class="num">14.00</td><td>Kmart (n.d.-a)</td></tr><tr><td>Cable</td><td>USB-C to USB-C cable, 1 m</td><td class="num">9.00</td><td>Kmart (n.d.-b)</td></tr><tr class="total"><td>Bundle</td><td></td><td class="num">277.89</td><td></td></tr></tbody></table></div><p>The $420 materials, setup and delivery line in Table 9 is a team planning allowance, not a quote. It covers printing and laminating the visitor guides and trip logs, kit ID labels, a lockable storage and charging box at the Ranger base, and freight from Cairns. YAC should replace it with local quotes.</p></div></details>
+        <details class="cg" open><summary>Appendix D: Use of AI and prompt log</summary><div class="body stack">
+          <p class="ph" data-todo="appendix-d"><b>Statement (adapt to what the team actually did):</b> Generative AI (name the tools) was used to [find sources, draft and edit text, format references, produce the demonstration 3D models and diagrams]. All facts, figures and references were checked against the original sources by the team. AI was not used for [list]. Screenshots of every prompt and the output generated follow.</p>
+        </div></details>
+        <details class="cg"><summary>Appendix E: Earlier design work</summary><div class="body stack">
+          <figure class="fig">
+            <div class="fig-label"><b>Figure E1</b><i>Idea map from the Week 6 presentation</i></div>
+            <img src="img/ideas-map.webp" alt="Idea map linking visitor information, communication, emergency response, visitor tracking and design requirements to the central visitor safety problem" loading="lazy" width="1400" height="788">
+            <p class="fig-note"><i>Note.</i> Created by The Group (2026) for the Assessment Task 2A presentation.</p>
+          </figure>
+          <figure class="fig" style="max-width:640px">
+            <div class="fig-label"><b>Figure E2</b><i>Earlier satellite loan kit concept</i></div>
+            <img src="img/concept-kit-2a.webp" alt="Concept image of a loan kit: an orange satellite communicator, power bank, cable, pouch, and approved-visit and check-in cards" loading="lazy" width="860" height="520" style="background:var(--page)">
+            <p class="fig-note"><i>Note.</i> Illustrative concept generated with Microsoft Copilot (Microsoft, 2026) for the team's Assessment Task 2A presentation. It shows the single-kit option that was later refined into three tiers.</p>
+          </figure>
+        </div></details>
+      </div>
+    </div>
+  </section>
+</section>
+</main>
+
+<footer class="sitefoot">
+  <div class="wrap">
+    <span>"The Group" · UTS 31265 Communication for IT Professionals · EWB Challenge 2026</span>
+    <span>Banner photos: Engineers Without Borders Australia (2026)</span>
+  </div>
+</footer>
+
+<!-- 3D models of the kits (base64), then the site script -->
+<script src="models/kits.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
