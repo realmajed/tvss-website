@@ -247,7 +247,7 @@ details.cg .body{padding:0 18px 16px 38px;color:var(--ink-2);font-size:.92rem}
 .bars{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 18px 10px;position:relative}
 .bar-row{display:grid;grid-template-columns:minmax(120px,240px) minmax(0,1fr);gap:14px;align-items:center;padding:6px 0}
 .bar-lbl{font-size:.84rem;color:var(--ink-2);line-height:1.3}
-.bar-track{position:relative;height:30px;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(33.333% - 1px),#E7EDEE calc(33.333% - 1px),#E7EDEE 33.333%)}
+.bar-track{position:relative;height:30px;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(25% - 1px),#E7EDEE calc(25% - 1px),#E7EDEE 25%)}
 .bar{position:absolute;left:0;top:4px;height:22px;background:var(--navy);border-radius:0 4px 4px 0;cursor:default}
 .bar:hover,.bar:focus-visible{background:#1E5A88}
 .bar-val{position:absolute;top:5px;font-size:.8rem;font-weight:700;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}

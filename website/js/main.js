@@ -3,13 +3,13 @@
 (function () {
   // 3D hotspot positions (metres) for each kit model
   // (positions come from the model builder, which places each product at its real size)
-  var KIT = [{ label: 'Printed visitor guide', position: [0.03, 0.003, 0.125] }, { label: 'Trip record (departure and return)', position: [0.155, 0.003, 0.13] }, { label: 'Whistle (Fox 40 Micro)', position: [-0.147, 0.017, 0.161] }, { label: 'Power bank (10,000 mAh)', position: [0.03, 0.018, -0.045] }, { label: 'USB-C cable', position: [0.116, 0.013, -0.05] }, { label: 'Strobe (ACR C-Strobe)', position: [0.185, 0.131, -0.03] }];
+  var KIT = [{ label: 'Printed visitor guide', position: [-0.2, 0.003, 0.06] }, { label: 'Trip log (departure and return)', position: [-0.08, 0.003, 0.075] }, { label: 'Strobe (Wuben X1 Pro)', position: [-0.12, 0.031, 0.185] }, { label: 'Power bank (10,000 mAh)', position: [0.06, 0.018, 0.061] }, { label: 'Whistle (Fox 40 Micro)', position: [0.093, 0.017, 0.185] }, { label: 'USB-C cable', position: [0.151, 0.013, 0] }];
   var HOT = {
-    tier1: [{ label: 'Printed visitor guide', position: [-0.062, 0.003, 0] }, { label: 'Trip record (departure and return)', position: [0.062, 0.003, 0.01] }],
-    tier2: [{ label: 'Tier 2 pouch', position: [-0.15, 0.16, -0.045], normal: [0, 0, 1] }].concat(KIT),
-    tier3: [{ label: 'Tier 3 pouch', position: [-0.15, 0.16, -0.045], normal: [0, 0, 1] }].concat(KIT, [{ label: 'Two-way satellite messenger (Garmin inReach Messenger)', position: [0.255, 0.09, -0.03] }])
+    tier1: [{ label: 'Printed visitor guide', position: [-0.062, 0.003, 0] }, { label: 'Trip log (departure and return)', position: [0.062, 0.003, 0.01] }],
+    tier2: [{ label: 'Tier 2 pouch', position: [0, 0.063, -0.1] }].concat(KIT),
+    tier3: [{ label: 'Tier 3 pouch', position: [0, 0.063, -0.1] }].concat(KIT, [{ label: 'Two-way satellite messenger (Garmin inReach Messenger)', position: [0.17, 0.09, 0.09] }])
   };
-  var NAMES = { 1: 'Tier 1 kit: printed visitor guide and trip record', 2: 'Tier 2 kit: pouch, guide, trip record, whistle, strobe, power bank and cable', 3: 'Tier 3 kit: Tier 2 items plus a two-way satellite messenger' };
+  var NAMES = { 1: 'Tier 1 kit: printed visitor guide and trip record', 2: 'Tier 2 kit: pouch, guide, trip log, whistle, strobe torch, power bank and cable', 3: 'Tier 3 kit: Tier 2 items plus a two-way satellite messenger' };
   var SITE = 'Tiered Visitor Safety System';
 
   var pages = [].slice.call(document.querySelectorAll('.page'));
@@ -176,10 +176,10 @@
   document.getElementById('carNext').addEventListener('click', function () { slide(ci + 1); });
   slide(0);
 
-  // ---------- Figure 13: cost chart (values from Table 10) ----------
+  // ---------- Figure 14: cost chart (values from Table 10) ----------
   (function () {
-    var data = [['2 messengers + activation', 1138], ['5 accessory bundles', 875], ['Ranger training (4 Rangers × 4 h)', 720], ['Contingency (15%)', 552.15], ['Satellite service (12 months)', 528], ['Materials, setup and delivery', 420]];
-    var total = data.reduce(function (s, d) { return s + d[1]; }, 0), max = 1500;
+    var data = [['5 accessory bundles', 1389.45], ['2 messengers + activation', 1138], ['Ranger training (4 Rangers × 4 h)', 720], ['Contingency (15%)', 629.32], ['Satellite service (12 months)', 528], ['Materials, setup and delivery', 420]];
+    var total = data.reduce(function (s, d) { return s + d[1]; }, 0), max = 2000;
     var box = document.getElementById('costChart');
     var tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true; box.appendChild(tip);
     data.forEach(function (d) {
@@ -205,11 +205,11 @@
       tr.appendChild(bar); tr.appendChild(val); row.appendChild(lbl); row.appendChild(tr); box.appendChild(row);
     });
     var ax = document.createElement('div'); ax.className = 'bar-axis';
-    ax.innerHTML = '<span></span><div class="ticks"><span>$0</span><span>$500</span><span>$1,000</span><span>$1,500</span></div>';
+    ax.innerHTML = '<span></span><div class="ticks"><span>$0</span><span>$500</span><span>$1,000</span><span>$1,500</span><span>$2,000</span></div>';
     box.appendChild(ax);
   })();
 
-  // ---------- Figure 12: implementation timeline ----------
+  // ---------- Figure 13: implementation timeline ----------
   (function () {
     var months = ['Nov 26', 'Dec', 'Jan 27', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov 27'];
     var full = ['Nov 2026', 'Dec 2026', 'Jan 2027', 'Feb 2027', 'Mar 2027', 'Apr 2027', 'May 2027', 'Jun 2027', 'Jul 2027', 'Aug 2027', 'Sep 2027', 'Oct 2027', 'Nov 2027'];

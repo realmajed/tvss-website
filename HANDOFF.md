@@ -54,11 +54,9 @@ These items need information only the team has. Each is marked on the site in or
 
 | Page | What to add | Search for |
 |---|---|---|
-| Prototype | **How it was built:** materials and sizes of the cardboard kits, how the guide and trip record were mocked up, and 3–6 photos of the real prototype. Photos are easiest to build into the code before exporting; after exporting, they can only go on the Google Sites page below the website block (**Insert → Images**). | `data-todo="prototype-build"` |
 | Prototype | **Table 7 results:** the Result and Change made columns for all five tests, then two or three sentences under **Results and changes**. Without results, the prototype counts as a model rather than a tested prototype. | `data-todo="test-results"` |
-| Prototype | **Figure 11 note:** which tool made the concept renders. | `data-todo="figure-11-tool"` |
 | Team | **Table 13:** each member's website contribution. List contributing members only; a non-contributing member must not be listed. | `data-todo="team-contributions"` |
-| Appendices | **A** group charter link, **B** meeting minutes, **C** full test results, **D** cost workings (the $175 bundle is now itemised; add the pouch and cable product and the breakdown of the $420 materials, setup and delivery allowance). | `data-todo="appendix-a"` … `appendix-d` |
+| Appendices | **A** group charter link, **B** meeting minutes, **C** full test results, **D** cost workings (done: the $277.89 bundle is itemised and the $420 allowance is explained; add the pouch and cable product and the breakdown of the $420 materials, setup and delivery allowance). | `data-todo="appendix-a"` … `appendix-d` |
 | Appendices | **E** the AI-use statement, with reasons for using AI and screenshots of prompts and outputs. The rubric only gives full marks for the statement when it includes reasons and screenshots. | `data-todo="appendix-e"` |
 
 When you replace a placeholder, delete its `class="todo"` or `class="ph"` and its `data-todo="…"` too, so it stops showing in orange or in a dashed box. For example:
@@ -78,10 +76,10 @@ becomes
 These items are filled in on the site, but the team needs to agree them.
 
 - **Table 4 decision-matrix scores** (Design selection). Agree them together. If a score changes, recompute the weighted total (sum of weight × score) and update the sentence under the table.
-- **Figure 12 timeline dates** (Implementation plan). Check they match what was presented.
+- **Figure 13 timeline dates** (Implementation plan). Check they match what was presented.
 - **Tutor's name** on the Home page ("Pranavi Gangapuri").
-- **Training and Ranger-time costs** (Tables 10 and 11, Figure 13). These were added after the tutor asked for Ranger training to be costed. They use a $45 per hour planning rate (above the $26.44 minimum wage, Fair Work Ombudsman, 2026), a 4-hour first session and a 2-hour yearly refresher for four Rangers, about 30 loans a season at 15 minutes each, and a 10% yearly replacement reserve. Swap in better figures if the team has them, and keep Table 10, Table 11, Figure 13 (the `data` array in `js/main.js`) and the executive summary in step.
-- **Concept renders (Figure 11).** The Tier 1 render shows a pouch, but Table 5 only adds the pouch at Tier 2. The strobe in the renders is a branded torch, not the ACR strobe in the costing. Fix the renders or say in the note that they are illustrative (the note already says this).
+- **Training and Ranger-time costs** (Tables 10 and 11, Figure 14). These were added after the tutor asked for Ranger training to be costed. They use a $45 per hour planning rate (above the $26.44 minimum wage, Fair Work Ombudsman, 2026), a 4-hour first session and a 2-hour yearly refresher for four Rangers, about 30 loans a season at 15 minutes each, and a 10% yearly replacement reserve. Swap in better figures if the team has them, and keep Table 10, Table 11, Figure 14 (the `data` array in `js/main.js`) and the executive summary in step.
+- **Concept renders (Figure 12).** The Tier 1 render shows a pouch, but Table 5 only adds the pouch at Tier 2. The strobe in the renders is a branded torch, not the ACR strobe in the costing. Fix the renders or say in the note that they are illustrative (the note already says this).
 - **One editor reads every page** so the site reads in one voice and in the third person.
 
 ## 6. After publishing
@@ -120,7 +118,7 @@ First, confirm you understand. Then wait for my request.
 
 **Audience.** YAC and the Lama Lama Rangers (decision makers), the public and visitors, and UTS markers. The writing is plain and in the third person. Community authority is stated up front: YAC approves destinations, tier rules and data handling.
 
-**The design in one paragraph.** Rangers ask four questions about each approved trip (approval, nearby assistance, communication, hazards) and issue one of three tiers. **Tier 1** (near base) is a printed visitor guide and a trip record. **Tier 2** (away from base) adds a strobe, whistle, power bank and protective pouch. **Tier 3** (remote or unmonitored) adds a two-way satellite messenger, benchmarked on the Garmin inReach Messenger. Every trip has a due-back time that a named person monitors. The first-year pilot is about AUD $4,233, including Ranger training and 15% contingency, then about $1,413 per year for satellite service, refresher training, replacements and Ranger time.
+**The design in one paragraph.** Rangers ask four questions about each approved trip (approval, nearby assistance, communication, hazards) and issue one of three tiers. **Tier 1** (near base) is a printed visitor guide and a trip record. **Tier 2** (away from base) adds a strobe, whistle, power bank and protective pouch. **Tier 3** (remote or unmonitored) adds a two-way satellite messenger, benchmarked on the Garmin inReach Messenger. Every trip has a due-back time that a named person monitors. The first-year pilot is about AUD $4,825, including Ranger training and 15% contingency, then about $1,465 per year for satellite service, refresher training, replacements and Ranger time.
 
 **Pages (15) and their routes.** The menu groups pages the same way a Google Sites menu would.
 
@@ -133,10 +131,10 @@ First, confirm you understand. Then wait for my request.
 | Design | Design options | `#options` | Three options, Table 3 (earlier concepts, in a collapsible) |
 | Design | Design selection | `#selection` | Table 4 (weighted decision matrix), reasons for each rating, selected design |
 | Design | Detailed design | `#design` | Figure 7 (workflow), Figure 8 (tier flowchart), Tables 5–6, Figure 9 (messenger), why radio is excluded, reserve and data, community concerns (collapsibles) |
-| Prototype | Prototyping and testing | `#prototype` | What was prototyped, Figure 10 (interactive 3D kits), Figure 11 (render carousel), Table 7 (tests) |
-| Delivery | Implementation plan | `#implementation` | Figure 12 (timeline), Table 8 (roles), training, evaluation, ownership and repair |
-| Delivery | Cost analysis | `#costs` | Tables 9–11, Figure 13 (cost chart), funding, end of life |
-| Delivery | Other considerations | `#considerations` | Figure 14 (visitor journey map), Table 12 (broader considerations) |
+| Prototype | Prototyping and testing | `#prototype` | What was prototyped, Figure 11 (interactive 3D kits), Figure 12 (render carousel), Table 7 (tests) |
+| Delivery | Implementation plan | `#implementation` | Figure 13 (timeline), Table 8 (roles), training, evaluation, ownership and repair |
+| Delivery | Cost analysis | `#costs` | Tables 9–11, Figure 14 (cost chart), funding, end of life |
+| Delivery | Other considerations | `#considerations` | Figure 15 (visitor journey map), Table 12 (broader considerations) |
 | Delivery | Recommendations | `#recommendations` | Six follow-up actions |
 | Team | "The Group" | `#team` | Group declaration, Table 13 |
 | References | References | `#references` | 24 APA 7 references, hanging indent, links |
@@ -175,6 +173,7 @@ All photos are from the EWB Challenge 2026 design brief. They are copyright Engi
 
 | File | Used for | Source and caption note |
 |---|---|---|
+| `prototype-kit.webp` | Figure 10 | The team's own photo of the cardboard prototype ("Photo by The Group (2026)"). |
 | `cover.webp` | Home cover; Team banner | EWB brief, cover photo. Credit on the image: "Photo: Engineers Without Borders Australia (2026), cover". |
 | `aerial.webp` | Project details and Implementation banners | EWB brief, p. 18. |
 | `running-creek.webp` | Background banner | EWB brief, p. 21. |
@@ -182,9 +181,9 @@ All photos are from the EWB Challenge 2026 design brief. They are copyright Engi
 | `map.webp` | Figure 2 | EWB brief, p. 14. |
 | `safari-camp.webp` | Figure 4 | EWB brief, p. 19. |
 | `messenger.webp` | Figure 9 | Garmin product photo from the team's final presentation (slide 10), cited as Garmin (n.d.-b). |
-| `render-t1/t2/t3.webp` | Figure 11 carousel | Team's final presentation, slide 13, re-extracted at full resolution with transparent backgrounds. **Name the tool that made them** (section 4). |
+| `render-t1/t2/t3.webp` | Figure 12 carousel | Team's final presentation, slide 13, re-extracted at full resolution with transparent backgrounds. **Name the tool that made them** (section 4). |
 | `ideas-map.webp`, `concept-kit-2a.webp` | Appendix F | Task 2A presentation, slides 7 and 11. The kit concept was made with Microsoft Copilot (credited on the slide). |
-| 3D models (in `models/kits.js`) | Figure 10 | Built to the published sizes of the costed products (ACR C-Strobe, Cygnett GO 10K, Garmin inReach Messenger, Fox 40 Micro, A6 cards), with AI assistance (cited as Anthropic, 2026). The pouch is representative. |
+| 3D models (in `models/kits.js`) | Figure 11 | Follow the team's cardboard prototype (Wuben X1 Pro strobe torch, white 10,000 mAh power bank, grey whistle, Garmin inReach Messenger, navy soft zip pouch, A6 guide and trip log), each at its published size, made with AI assistance (cited as Anthropic, 2026). |
 | Google Map | Figure 3 | Live Google Maps embed (cited as Google, n.d.). |
 
 Free extras (Wikimedia Commons, freely licensed; use **Use this file** on each page for the exact credit):
@@ -227,7 +226,7 @@ The counted pages are Project details through Recommendations. Home holds the co
 | Recommendations | 112 | 112 |
 | **Total** | **4,037** | **2,411** |
 
-The first column also counts every table, figure label and *Note.* line. Excluding the notes and labels but keeping tables gives about 3,585. The prototype and test-results text still to be written will add about 200–300 words. If the team's count needs to come down, start with Table 3 and its paragraph on Design options (about 110 words) or shorten the journey map (Figure 14).
+The first column also counts every table, figure label and *Note.* line. Excluding the notes and labels but keeping tables gives about 3,585. The prototype and test-results text still to be written will add about 200–300 words. If the team's count needs to come down, start with Table 3 and its paragraph on Design options (about 110 words) or shorten the journey map (Figure 15).
 
 ## 13. Technical notes
 
@@ -235,7 +234,7 @@ The first column also counts every table, figure label and *Note.* line. Excludi
 - **Add a page.** Copy a `<section class="page">` block, give it a new `id="p-NAME"` and `data-route="NAME"`, add `<a href="#NAME" data-r="NAME">` to the menu in `<header>`, and add pager buttons.
 - **Figures and charts.**
   - Figures 5 and 8 are inline SVG.
-  - Figure 12 (timeline) and Figure 13 (cost chart) are drawn by `main.js` from small data arrays near the bottom of the file. Edit the numbers there.
+  - Figure 13 (timeline) and Figure 14 (cost chart) are drawn by `main.js` from small data arrays near the bottom of the file. Edit the numbers there.
   - Tables are plain HTML `<table class="t">`.
 - **3D viewer.** It uses Google's [model-viewer](https://modelviewer.dev/) 4.1.0 from jsDelivr, so it needs the internet. The three kit models are GLB files stored as base64 in `window.KIT_GLB` (in `models/kits.js`, or the last `<script>` of the single file), keyed `"1"`, `"2"` and `"3"`. The models are generated by `tools/kit-builder/`: run `python tools/kit-builder/save_server.py`, open http://127.0.0.1:8772/, then run `exportAll()` in the browser console. It saves `tier1–3.glb` and the hotspot positions to `tools/kit-builder/out/`; base64-encode the GLBs into `models/kits.js` and copy the positions into the `KIT`/`HOT` objects at the top of `main.js`. Every product is built to its published size, so edit the dimensions there if the team changes a product. To use a phone scan of the cardboard prototype instead, export it as `.glb`, base64-encode it, and replace the `"3"` string.
 - **External resources.**
@@ -259,9 +258,9 @@ Use this only if you build the site page by page in Google Sites instead of expo
 - **Captions (APA 7).** Add a text box above each image or table with the bold label (**Figure 4**) and italic title, and a text box below for the *Note.* line. Select the image and its text boxes and **Group** them.
 - **Alt text.** Click an image, open its **⋮** menu → **Alt text**. The alt text for each image is in `index.html`.
 - **Diagrams** (Figures 1, 5, 7, 8, 12, 14). Rebuild them in Canva or Google Slides and insert them as images, or screenshot them from the site and say so in the AI statement.
-- **Chart** (Figure 13). Paste Table 10 into a Google Sheet, **Insert → Chart → Bar chart**, then in Sites **Insert → Charts** and pick the Sheet. It stays linked to the Sheet.
+- **Chart** (Figure 14). Paste Table 10 into a Google Sheet, **Insert → Chart → Bar chart**, then in Sites **Insert → Charts** and pick the Sheet. It stays linked to the Sheet.
 - **Map** (Figure 3). **Insert → Map**, search "Port Stewart QLD 4892".
-- **Carousel** (Figure 11). **Insert → Image carousel.** In **Edit carousel**, point to each image → **Add text → Add caption**.
+- **Carousel** (Figure 12). **Insert → Image carousel.** In **Edit carousel**, point to each image → **Add text → Add caption**.
 - **Collapsible text and table of contents.** **Insert → Collapsible group** and **Insert → Table of contents** (lists the Heading and Subheading text on the page).
 - **3D model.** **Insert → Embed → Embed code**, using either:
   - Sketchfab's embed code for an uploaded model, or
@@ -391,8 +390,8 @@ Notes for this page:
 - Heading → "How it was built"
 - Text box + Image carousel (your photos) → "Team to add: materials and sizes of the cardboard kits,…"
 - Heading → "Explore the kits in 3D"
-- Embed → Embed code (model-viewer) or Sketchfab embed → Figure 10: *Interactive 3D model of the three equipment tiers*
-- Insert → Image carousel → Figure 11: *Concept renders of the Tier 1, Tier 2 and Tier 3 kits*
+- Embed → Embed code (model-viewer) or Sketchfab embed → Figure 11: *Interactive 3D model of the three equipment tiers*
+- Insert → Image carousel → Figure 12: *Concept renders of the Tier 1, Tier 2 and Tier 3 kits*
 - Heading → "Testing"
 - Text box → "Five quick tests check the handover questions above (Table 7).…"
 - Embed → Embed code (HTML table) → Table 7: *Prototype tests, targets and results*
@@ -407,7 +406,7 @@ Notes for this page:
 
 - Header type: Banner → page title "Implementation plan", photo `aerial.webp`
 - Text box → "Implementation is staged around the seasons. Planning happens during the…"
-- Image (timeline made in Sheets, Canva or Slides) → Figure 12: *Proposed implementation timeline, November 2026 to November 2027*
+- Image (timeline made in Sheets, Canva or Slides) → Figure 13: *Proposed implementation timeline, November 2026 to November 2027*
 - Heading → "Who does what"
 - Embed → Embed code (HTML table) → Table 8: *Roles and responsibilities*
 - Heading → "Training"
@@ -423,7 +422,7 @@ Notes for this page:
 - Text box → "Costs are in Australian dollars, checked on 8 October 2026.…"
 - Embed → Embed code (HTML table) → Table 9: *Tier 3 satellite messenger cost baseline*
 - Embed → Embed code (HTML table) → Table 10: *Illustrative first-year pilot cost*
-- Insert → Chart (from a Google Sheet) → Figure 13: *First-year pilot cost by budget line (AUD; total $4,233)*
+- Insert → Chart (from a Google Sheet) → Figure 14: *First-year pilot cost by budget line (AUD; total $4,825)*
 - Heading → "Beyond the pilot"
 - Text box → "After the first year, satellite service for two devices costs…"
 - Embed → Embed code (HTML table) → Table 11: *Three-year cost view*
@@ -437,7 +436,7 @@ Notes for this page:
 - Header type: Title only → page title "Other considerations", no photo
 - Heading → "Visitor journey map"
 - Text box → "The journey map follows one visitor through the system and…"
-- Image (journey map made in Canva or Slides) or Embed code table → Figure 14: *Visitor journey through the Tiered Visitor Safety System*
+- Image (journey map made in Canva or Slides) or Embed code table → Figure 15: *Visitor journey through the Tiered Visitor Safety System*
 - Heading → "Broader considerations and mitigation"
 - Embed → Embed code (HTML table) → Table 12: *Broader design considerations and how they are mitigated*
 
@@ -460,7 +459,7 @@ Notes for this page:
 #### References (`#references`)
 
 - Header type: Title only → page title "References", no photo
-- Text box or Embed code (hanging indent) → "ACR Electronics. (2016). ACR C-Strobe & C-Strobe H₂O: Manual/water-activated emergency…"
+- Text box or Embed code (hanging indent) → "Anthropic. (2026). Claude (Opus 5.5 version) [Large language model]…"
 
 Notes for this page:
 - Checks: every in-text citation on the site must appear here, and every entry here must be cited somewhere (this list matches the site's citations). Undated works by the same author go before dated ones (Garmin n.d. before Garmin 2025). If you also cite Garmin's account-setup page from your slides, the two undated Garmin entries become n.d.-a and n.d.-b, lettered by title.
