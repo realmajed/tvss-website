@@ -2,12 +2,14 @@
    One HTML file holds every page; the hash (#home, #design, ...) picks which page is shown. */
 (function () {
   // 3D hotspot positions (metres) for each kit model
+  // (positions come from the model builder, which places each product at its real size)
+  var KIT = [{ label: 'Printed visitor guide', position: [0.03, 0.003, 0.125] }, { label: 'Trip record (departure and return)', position: [0.155, 0.003, 0.13] }, { label: 'Whistle (Fox 40 Micro)', position: [-0.147, 0.017, 0.161] }, { label: 'Power bank (10,000 mAh)', position: [0.03, 0.018, -0.045] }, { label: 'USB-C cable', position: [0.116, 0.013, -0.05] }, { label: 'Strobe (ACR C-Strobe)', position: [0.185, 0.131, -0.03] }];
   var HOT = {
-    tier1: [{ label: 'Printed visitor guide', position: [-0.065, 0.002, -0.03] }, { label: 'Trip record (departure and return)', position: [0.075, 0.002, 0.02] }],
-    tier2: [{ label: 'Tier 2 pouch', position: [-0.16, 0.076, 0.07], normal: [0, 0, 1] }, { label: 'Printed visitor guide', position: [0, 0.002, 0.08] }, { label: 'Whistle', position: [0.09, 0.024, 0.13] }, { label: 'Strobe', position: [0.17, 0.136, 0.04] }, { label: 'Power bank', position: [0.09, 0.017, -0.03] }, { label: 'USB-C cable', position: [0.04, 0.012, -0.11] }],
-    tier3: [{ label: 'Tier 3 pouch', position: [-0.16, 0.076, 0.07], normal: [0, 0, 1] }, { label: 'Printed visitor guide', position: [0, 0.002, 0.08] }, { label: 'Whistle', position: [0.09, 0.024, 0.13] }, { label: 'Strobe', position: [0.17, 0.136, 0.04] }, { label: 'Power bank', position: [0.09, 0.017, -0.03] }, { label: 'USB-C cable', position: [0.04, 0.012, -0.11] }, { label: 'Two-way satellite messenger', position: [0.19, 0.03, -0.08] }]
+    tier1: [{ label: 'Printed visitor guide', position: [-0.062, 0.003, 0] }, { label: 'Trip record (departure and return)', position: [0.062, 0.003, 0.01] }],
+    tier2: [{ label: 'Tier 2 pouch', position: [-0.15, 0.16, -0.045], normal: [0, 0, 1] }].concat(KIT),
+    tier3: [{ label: 'Tier 3 pouch', position: [-0.15, 0.16, -0.045], normal: [0, 0, 1] }].concat(KIT, [{ label: 'Two-way satellite messenger (Garmin inReach Messenger)', position: [0.255, 0.09, -0.03] }])
   };
-  var NAMES = { 1: 'Tier 1 kit: printed visitor guide and trip record', 2: 'Tier 2 kit: pouch, guide, whistle, strobe, power bank and cable', 3: 'Tier 3 kit: Tier 2 items plus a two-way satellite messenger' };
+  var NAMES = { 1: 'Tier 1 kit: printed visitor guide and trip record', 2: 'Tier 2 kit: pouch, guide, trip record, whistle, strobe, power bank and cable', 3: 'Tier 3 kit: Tier 2 items plus a two-way satellite messenger' };
   var SITE = 'Tiered Visitor Safety System';
 
   var pages = [].slice.call(document.querySelectorAll('.page'));

@@ -1,0 +1,266 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Kit model builder</title>
+<style>body{margin:0;background:#eef2f2;font:14px system-ui}#c{width:100vw;height:100vh;display:block}#ui{position:fixed;top:8px;left:8px;background:#fff;padding:8px;border-radius:8px}</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+</head><body>
+<canvas id="c"></canvas>
+<div id="ui"><button data-t="1">Tier 1</button> <button data-t="2">Tier 2</button> <button data-t="3">Tier 3</button> <span id="st"></span></div>
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js';
+
+// All sizes in metres, from the products costed on the site:
+//  Garmin inReach Messenger 64 x 78 x 23 mm; ACR C-Strobe 128.5 x 35 x 30 mm; Fox 40 Micro whistle;
+//  Cygnett GO 10K power bank (approx. 66 x 97 x 22 mm); A6 laminated guide and trip record cards (105 x 148 mm).
+const mm = v => v / 1000;
+const TIER = { 1: '#009E82', 2: '#B87414', 3: '#C4472B' };
+
+// ---------- materials ----------
+const M = (color, o = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.6, metalness: 0, ...o });
+const mat = {
+  shell: M('#2b2f34', { roughness: 0.85 }),
+  lining: M('#17191c', { roughness: 0.95 }),
+  trim: M('#1b2f52', { roughness: 0.6 }),
+  zip: M('#0d0f12', { roughness: 0.4, metalness: 0.3 }),
+  garmin: M('#3b3f44', { roughness: 0.55 }),
+  garminDark: M('#24272a', { roughness: 0.5 }),
+  rubber: M('#1c1e20', { roughness: 0.9 }),
+  yellow: M('#D4DF1A', { roughness: 0.45 }),
+  black: M('#111214', { roughness: 0.5 }),
+  lens: new THREE.MeshPhysicalMaterial({ color: '#ffffff', roughness: 0.05, transmission: 0.9, thickness: 0.004, transparent: true, opacity: 0.55 }),
+  led: M('#ffffff', { emissive: '#ffffff', emissiveIntensity: 0.6 }),
+  orange: M('#FF6A13', { roughness: 0.35 }),
+  bank: M('#1a1b1d', { roughness: 0.35, metalness: 0.1 }),
+  port: M('#050505', { roughness: 0.8 }),
+  cable: M('#202224', { roughness: 0.6 }),
+  silver: M('#b9bdc2', { roughness: 0.3, metalness: 0.8 }),
+};
+
+// ---------- canvas textures (exported as JPEG/PNG inside the GLB) ----------
+function canvasTex(w, h, draw, jpeg = true) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const g = c.getContext('2d'); draw(g, w, h);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+  t.userData.mimeType = jpeg ? 'image/jpeg' : 'image/png';
+  return t;
+}
+const FONT = '"Segoe UI",Arial,sans-serif';
+function guideTex() {
+  return canvasTex(420, 592, (g, w, h) => {
+    g.fillStyle = '#fdfcf8'; g.fillRect(0, 0, w, h);
+    g.fillStyle = '#143F61'; g.fillRect(0, 0, w, 96);
+    g.fillStyle = '#fff'; g.font = `800 40px ${FONT}`; g.fillText('VISITOR GUIDE', 24, 52);
+    g.font = `500 19px ${FONT}`; g.fillText('Lama Lama Country · Port Stewart', 24, 82);
+    const rows = [['#009E82', 'Your approved route', 'Stay on the route the Rangers approved.'], ['#B87414', 'Due-back time', 'Return by the time on your trip record.'], ['#C4472B', 'In an emergency', '1 Stay with your group  2 Signal  3 Send SOS'], ['#143F61', 'Closed to visitors', 'Marpa, Burkitt, Pelican and Stainer Islands']];
+    rows.forEach((r, i) => {
+      const y = 130 + i * 102;
+      g.fillStyle = r[0]; g.beginPath(); g.arc(46, y + 22, 20, 0, 7); g.fill();
+      g.fillStyle = '#fff'; g.font = `800 22px ${FONT}`; g.fillText(String(i + 1), 39, y + 30);
+      g.fillStyle = '#143F61'; g.font = `700 24px ${FONT}`; g.fillText(r[1], 80, y + 18);
+      g.fillStyle = '#3F4D59'; g.font = `400 18px ${FONT}`; g.fillText(r[2], 80, y + 46);
+      g.fillStyle = '#e4e8ea'; g.fillRect(24, y + 72, w - 48, 2);
+    });
+    g.fillStyle = '#FDF1E4'; g.fillRect(24, 540 - 8, w - 48, 44);
+    g.fillStyle = '#7A4A06'; g.font = `700 18px ${FONT}`; g.fillText('Estuarine crocodiles live in all waters', 38, 560);
+  });
+}
+function recordTex(tier) {
+  return canvasTex(420, 592, (g, w, h) => {
+    g.fillStyle = '#ffffff'; g.fillRect(0, 0, w, h);
+    g.fillStyle = TIER[tier]; g.fillRect(0, 0, w, 84);
+    g.fillStyle = '#fff'; g.font = `800 36px ${FONT}`; g.fillText('TRIP RECORD', 24, 52);
+    g.font = `700 20px ${FONT}`; g.fillText('TIER ' + tier, w - 96, 52);
+    const f = ['Kit ID', 'Party name', 'People in party', 'Destination', 'Departed', 'Due back', 'Issued by (Ranger)', 'Returned / checked'];
+    f.forEach((t, i) => {
+      const y = 132 + i * 56;
+      g.fillStyle = '#3F4D59'; g.font = `600 18px ${FONT}`; g.fillText(t, 24, y);
+      g.fillStyle = '#c9d1d6'; g.fillRect(24, y + 14, w - 48, 2);
+    });
+    g.fillStyle = '#143F61'; g.font = `500 22px "Segoe Print","Comic Sans MS",cursive`;
+    g.fillText('T' + tier + '-01', 200, 128);
+    g.fillText(tier === 1 ? 'Safari Camp' : tier === 2 ? 'Silver Plains' : 'Running Creek', 200, 296);
+  });
+}
+function labelTex(text, color) {
+  return canvasTex(256, 80, (g, w, h) => {
+    g.fillStyle = '#132a4d'; g.fillRect(0, 0, w, h);
+    g.strokeStyle = '#ffffff'; g.lineWidth = 4; g.strokeRect(6, 6, w - 12, h - 12);
+    g.fillStyle = color; g.fillRect(14, 14, 18, h - 28);
+    g.fillStyle = '#fff'; g.font = `800 44px ${FONT}`; g.fillText(text, 48, 57);
+  }, false);
+}
+function meshTex() { // pocket mesh on the inside of the lid
+  const t = canvasTex(128, 128, (g, w, h) => {
+    g.fillStyle = '#1a1c1f'; g.fillRect(0, 0, w, h);
+    g.strokeStyle = '#33373c'; g.lineWidth = 2;
+    for (let i = -w; i < w * 2; i += 10) { g.beginPath(); g.moveTo(i, 0); g.lineTo(i + h, h); g.stroke(); g.beginPath(); g.moveTo(i, h); g.lineTo(i + h, 0); g.stroke(); }
+  });
+  t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(4, 3); return t;
+}
+function garminFaceTex() {
+  return canvasTex(256, 312, (g, w, h) => {
+    g.fillStyle = '#3b3f44'; g.fillRect(0, 0, w, h);
+    g.fillStyle = '#55595e'; g.font = `700 30px ${FONT}`; g.textAlign = 'center';
+    g.fillText('GARMIN', w / 2, 120);
+    // screen window (25.3 x 11 mm on the real unit)
+    g.fillStyle = '#16181a'; roundRect(g, 38, 190, 180, 84, 10); g.fill();
+    g.fillStyle = '#c9d3c3'; roundRect(g, 48, 200, 160, 64, 4); g.fill();
+    g.fillStyle = '#2c3328'; g.font = `700 20px ${FONT}`; g.fillText('Check-in sent', w / 2, 230);
+    g.font = `500 15px ${FONT}`; g.fillText('Iridium  ●●●●', w / 2, 252);
+  });
+}
+function roundRect(g, x, y, w, h, r) { g.beginPath(); g.roundRect(x, y, w, h, r); }
+function strobeLabelTex() {
+  return canvasTex(128, 64, (g, w, h) => {
+    g.fillStyle = '#D4DF1A'; g.fillRect(0, 0, w, h);
+    g.fillStyle = '#111'; g.font = `800 22px ${FONT}`; g.textAlign = 'center';
+    g.fillText('C-STROBE', w / 2, 40);
+  }, false);
+}
+
+// ---------- product builders (each returns a Group sitting on y = 0) ----------
+function messenger() {
+  const G = new THREE.Group(); G.name = 'Two-way satellite messenger';
+  const W = mm(64), H = mm(78), D = mm(23);
+  const body = new THREE.Mesh(new RoundedBoxGeometry(W, H, D, 2, mm(9)), mat.garmin); body.position.y = H / 2; G.add(body);
+  const face = new THREE.Mesh(new THREE.PlaneGeometry(W * 0.86, H * 0.86), new THREE.MeshStandardMaterial({ map: garminFaceTex(), roughness: 0.5 }));
+  face.position.set(0, H / 2, D / 2 + 0.0002); G.add(face);
+  const band = new THREE.Mesh(new RoundedBoxGeometry(W + mm(0.8), H - mm(6), mm(6), 2, mm(2.5)), mat.rubber); band.position.y = H / 2; G.add(band); // rubberised side band
+  [0.62, 0.47].forEach(f => { // two side buttons
+    const b = new THREE.Mesh(new RoundedBoxGeometry(mm(2.5), mm(9), mm(6), 2, mm(1)), mat.garminDark); b.position.set(W / 2 + mm(1), H * f, 0); G.add(b);
+  });
+  const sos = new THREE.Mesh(new RoundedBoxGeometry(mm(3), mm(12), mm(9), 2, mm(1.4)), M('#6d7176')); sos.position.set(-W / 2 - mm(1.2), H * 0.7, 0); G.add(sos);
+  const loop = new THREE.Mesh(new THREE.TorusGeometry(mm(5), mm(1.6), 8, 20), mat.rubber); loop.position.set(-W / 2 + mm(8), H + mm(3), 0); G.add(loop);
+  return G;
+}
+function strobe(standing = true) {
+  const G = new THREE.Group(); G.name = 'Strobe';
+  const L = mm(128.5), w = mm(35), d = mm(30);
+  const bodyL = L - mm(24);
+  const body = new THREE.Mesh(new RoundedBoxGeometry(w, bodyL, d, 2, mm(11)), mat.yellow); body.position.y = bodyL / 2; G.add(body);
+  const label = new THREE.Mesh(new THREE.PlaneGeometry(w * 0.8, w * 0.4), new THREE.MeshStandardMaterial({ map: strobeLabelTex(), roughness: 0.5 }));
+  label.rotation.z = Math.PI / 2; label.position.set(0, bodyL * 0.55, d / 2 + 0.0003); G.add(label);
+  const collar = new THREE.Mesh(new THREE.CylinderGeometry(mm(15), mm(15.5), mm(9), 32), mat.black); collar.position.y = bodyL + mm(3); G.add(collar);
+  const dome = new THREE.Mesh(new THREE.SphereGeometry(mm(14), 32, 16, 0, Math.PI * 2, 0, Math.PI / 2), mat.lens); dome.scale.y = 1.2; dome.position.y = bodyL + mm(7.5); G.add(dome);
+  const led = new THREE.Mesh(new THREE.CylinderGeometry(mm(4), mm(4), mm(5), 16), mat.led); led.position.y = bodyL + mm(10); G.add(led);
+  [-1, 1].forEach(s => { const loop = new THREE.Mesh(new THREE.TorusGeometry(mm(4), mm(1.3), 6, 16, Math.PI), mat.black); loop.rotation.y = Math.PI / 2; loop.rotation.z = s > 0 ? 0 : Math.PI; loop.position.set(s * (w / 2), bodyL * 0.35, 0); loop.rotation.z = s * Math.PI / 2; G.add(loop); });
+  if (!standing) { G.rotation.z = Math.PI / 2; G.position.y = d / 2; }
+  return G;
+}
+function whistle() {
+  const G = new THREE.Group(); G.name = 'Whistle';
+  const body = new THREE.Mesh(new RoundedBoxGeometry(mm(30), mm(14), mm(19), 2, mm(6)), mat.orange); body.position.set(mm(4), mm(7), 0); G.add(body);
+  const mouth = new THREE.Mesh(new RoundedBoxGeometry(mm(17), mm(9), mm(12), 2, mm(3)), mat.orange); mouth.position.set(-mm(18), mm(5), 0); G.add(mouth);
+  const slot = new THREE.Mesh(new THREE.BoxGeometry(mm(6), mm(2), mm(13)), mat.black); slot.position.set(mm(-2), mm(14), 0); G.add(slot);
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(mm(6), mm(1.4), 8, 24), mat.orange); ring.rotation.x = Math.PI / 2; ring.position.set(mm(24), mm(5), 0); G.add(ring);
+  const lan = new THREE.Mesh(new THREE.TorusGeometry(mm(22), mm(1.2), 6, 40), M('#0c2340', { roughness: 0.9 })); lan.rotation.x = Math.PI / 2; lan.scale.set(1, 0.6, 1); lan.position.set(mm(48), mm(1.2), 0); G.add(lan);
+  return G;
+}
+function powerBank() { // Cygnett GO 10K: 144 x 70 x 16 mm, 2 x USB-C + 1 x USB-A, digital battery display (BIG W listing)
+  const G = new THREE.Group(); G.name = 'Power bank';
+  const W = mm(70), L = mm(144), T = mm(16);
+  const b = new THREE.Mesh(new RoundedBoxGeometry(W, T, L, 2, mm(5)), mat.bank); b.position.y = T / 2; G.add(b);
+  [-mm(16), 0, mm(16)].forEach((x, i) => { const p = new THREE.Mesh(new RoundedBoxGeometry(i === 2 ? mm(12) : mm(9), i === 2 ? mm(4.5) : mm(3.2), mm(2), 2, mm(1.2)), mat.port); p.position.set(x, T / 2, L / 2); G.add(p); });
+  const disp = new THREE.Mesh(new THREE.PlaneGeometry(mm(14), mm(8)), new THREE.MeshStandardMaterial({ map: canvasTex(64, 40, (g, w, h) => { g.fillStyle = '#0b0c0d'; g.fillRect(0, 0, w, h); g.fillStyle = '#4fc3ff'; g.font = '700 24px Arial'; g.textAlign = 'center'; g.fillText('86', w / 2, 29); }, false), emissive: '#ffffff', emissiveIntensity: 0.25 }));
+  disp.rotation.x = -Math.PI / 2; disp.position.set(0, T + 0.0002, L / 2 - mm(14)); G.add(disp);
+  return G;
+}
+function cable() {
+  const G = new THREE.Group(); G.name = 'USB-C cable';
+  [0, 1, 2].forEach(i => { const t = new THREE.Mesh(new THREE.TorusGeometry(mm(24 - i * 2), mm(2), 8, 40), mat.cable); t.rotation.x = Math.PI / 2; t.position.set(i * mm(1.5), mm(2) + i * mm(3.6), i * mm(1)); G.add(t); });
+  [[mm(30), 0.3], [mm(-28), -0.4]].forEach(([x, r]) => {
+    const plug = new THREE.Mesh(new RoundedBoxGeometry(mm(22), mm(6), mm(10), 2, mm(2.5)), mat.cable); plug.position.set(x, mm(3), mm(8)); plug.rotation.y = r; G.add(plug);
+    const tip = new THREE.Mesh(new RoundedBoxGeometry(mm(7), mm(2.6), mm(8.4), 2, mm(1.2)), mat.silver); tip.position.set(x + Math.sign(x) * mm(13), mm(3), mm(8) + Math.sign(x) * mm(4) * r); tip.rotation.y = r; G.add(tip);
+  });
+  return G;
+}
+function card(tex, name) {
+  const G = new THREE.Group(); G.name = name;
+  const W = mm(105), L = mm(148), T = mm(0.8);
+  const base = new THREE.Mesh(new RoundedBoxGeometry(W, T, L, 2, mm(0.35)), M('#f4f4f1', { roughness: 0.25 })); base.position.y = T / 2; G.add(base);
+  const top = new THREE.Mesh(new THREE.PlaneGeometry(W - mm(2), L - mm(2)), new THREE.MeshStandardMaterial({ map: tex, roughness: 0.25 }));
+  top.rotation.x = -Math.PI / 2; top.position.y = T + 0.0001; G.add(top);
+  return G;
+}
+function pouch(tier) {
+  const G = new THREE.Group(); G.name = 'Tier ' + tier + ' pouch';
+  const W = mm(230), D = mm(150), H = mm(70), wall = mm(7);
+  const base = new THREE.Mesh(new RoundedBoxGeometry(W, H, D, 2, mm(22)), mat.shell); base.position.y = H / 2; G.add(base);
+  const inner = new THREE.Mesh(new RoundedBoxGeometry(W - 2 * wall, mm(2), D - 2 * wall, 2, mm(14)), mat.lining); inner.position.y = H - mm(0.5); G.add(inner);
+  const rim = new THREE.Mesh(new RoundedBoxGeometry(W + mm(1.2), mm(3), D + mm(1.2), 2, mm(1.4)), mat.trim); rim.position.y = H - mm(1.5); G.add(rim);
+  const zipLine = new THREE.Mesh(new RoundedBoxGeometry(W + mm(2.5), mm(2), D + mm(2.5), 2, mm(1)), mat.zip); zipLine.position.y = H - mm(4.8); G.add(zipLine);
+  const tag = new THREE.Mesh(new THREE.PlaneGeometry(mm(80), mm(25)), new THREE.MeshStandardMaterial({ map: labelTex('TIER ' + tier, TIER[tier]), roughness: 0.6 }));
+  tag.position.set(mm(-40), H * 0.45, D / 2 + 0.0005); G.add(tag);
+  // lid, hinged along the back edge and opened ~105 degrees
+  const hinge = new THREE.Group(); hinge.position.set(0, H, -D / 2); G.add(hinge);
+  const lid = new THREE.Mesh(new RoundedBoxGeometry(W, mm(34), D, 2, mm(16)), mat.shell); lid.position.set(0, mm(17), D / 2); hinge.add(lid);
+  const lidRim = new THREE.Mesh(new RoundedBoxGeometry(W + mm(1.2), mm(3), D + mm(1.2), 2, mm(1.4)), mat.trim); lidRim.position.set(0, mm(1.5), D / 2); hinge.add(lidRim);
+  const net = new THREE.Mesh(new THREE.PlaneGeometry(W - mm(30), D - mm(30)), new THREE.MeshStandardMaterial({ map: meshTex(), roughness: 0.9 }));
+  net.rotation.x = Math.PI / 2; net.position.set(0, -mm(0.3), D / 2); hinge.add(net);
+  hinge.rotation.x = -THREE.MathUtils.degToRad(105);
+  const puller = new THREE.Mesh(new RoundedBoxGeometry(mm(6), mm(3), mm(20), 2, mm(1)), mat.zip); puller.position.set(W / 2 - mm(20), H - mm(5), D / 2 + mm(9)); G.add(puller);
+  return G;
+}
+
+// ---------- tier layouts ----------
+// returns { scene, hot: [{label, position}] } ; hotspot positions are on top of each item
+function place(obj, x, z, ry = 0) { obj.position.x = x; obj.position.z = z; obj.rotation.y = ry; return obj; }
+function topOf(obj) { const b = new THREE.Box3().setFromObject(obj); return [+((b.min.x + b.max.x) / 2).toFixed(3), +(b.max.y + 0.002).toFixed(3), +((b.min.z + b.max.z) / 2).toFixed(3)]; }
+function build(tier) {
+  const S = new THREE.Scene(); const hot = [];
+  const add = (o, label, normal) => { S.add(o); o.updateMatrixWorld(true); const h = { label, position: topOf(o) }; if (normal) h.normal = normal; hot.push(h); return o; };
+  if (tier === 1) {
+    add(place(card(guideTex(), 'Printed visitor guide'), -0.062, 0, -0.05), 'Printed visitor guide');
+    add(place(card(recordTex(1), 'Trip record'), 0.062, 0.01, 0.06), 'Trip record (departure and return)');
+  } else {
+    const p = add(place(pouch(tier), -0.15, 0.02), 'Tier ' + tier + ' pouch');
+    hot[0].position = [-0.15, 0.16, -0.045]; hot[0].normal = [0, 0, 1]; // on the open lid, clear of the tier tag
+    add(place(card(guideTex(), 'Printed visitor guide'), 0.03, 0.125, -0.06), 'Printed visitor guide');
+    add(place(card(recordTex(tier), 'Trip record'), 0.155, 0.13, 0.07), 'Trip record (departure and return)');
+    add(place(whistle(), -0.17, 0.17, 0.25), 'Whistle');
+    add(place(powerBank(), 0.03, -0.045, 0.2), 'Power bank');
+    add(place(cable(), 0.115, -0.05), 'USB-C cable');
+    add(place(strobe(true), 0.185, -0.03, -0.3), 'Strobe');
+    if (tier === 3) add(place(messenger(), 0.255, -0.03, -0.3), 'Two-way satellite messenger');
+  }
+  return { S, hot };
+}
+
+// ---------- preview + export ----------
+const canvas = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(devicePixelRatio); renderer.setSize(innerWidth, innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+const pm = new THREE.PMREMGenerator(renderer);
+const env = pm.fromScene(new RoomEnvironment(), 0.04).texture;
+const camera = new THREE.PerspectiveCamera(35, innerWidth / innerHeight, 0.01, 10);
+camera.position.set(0.25, 0.42, 0.55);
+const controls = new OrbitControls(camera, canvas); controls.target.set(0.03, 0.03, 0); controls.update();
+let current = null;
+function show(t) {
+  current = build(t); current.S.environment = env; current.S.background = new THREE.Color('#eef2f2');
+  window.__hot = current.hot;
+}
+function loop() { if (current) renderer.render(current.S, camera); requestAnimationFrame(loop); }
+loop();
+document.querySelectorAll('[data-t]').forEach(b => b.onclick = () => show(+b.dataset.t));
+show(3);
+
+async function exportTier(t) {
+  const { S, hot } = build(t);
+  // untextured parts don't need UVs; dropping them keeps the GLB small
+  S.traverse(o => { if (o.isMesh) { if (!o.material.map && o.geometry.attributes.uv) o.geometry.deleteAttribute('uv'); o.geometry = mergeVertices(o.geometry, 1e-5); } });
+  const glb = await new GLTFExporter().parseAsync(S, { binary: true });
+  const r = await fetch('/save?name=tier' + t + '.glb', { method: 'POST', body: glb });
+  await fetch('/save?name=hot' + t + '.json', { method: 'POST', body: JSON.stringify(hot) });
+  return 'tier' + t + ': ' + (glb.byteLength / 1024).toFixed(0) + ' KB ' + (await r.text());
+}
+window.exportAll = async () => [await exportTier(1), await exportTier(2), await exportTier(3)];
+window.show = show; window.cam = camera; window.controls = controls;
+document.getElementById('st').textContent = 'ready';
+</script>
+</body></html>

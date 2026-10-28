@@ -10,7 +10,7 @@ This file goes with the finished website. It explains how to get the site into G
 
 | File | What it is | Use it for |
 |---|---|---|
-| `tvss-website-single-file.html` | The whole website in one file (about 1.4 MB). Styles, scripts, photos and 3D models are built in. Fonts and the 3D viewer library load from the internet. | **Pasting into Gemini Canvas** (section 3), or opening on any computer by double-clicking. |
+| `tvss-website-single-file.html` | The whole website in one file (about 2.6 MB). Styles, scripts, photos and 3D models are built in. Fonts and the 3D viewer library load from the internet. | **Pasting into Gemini Canvas** (section 3), or opening on any computer by double-clicking. |
 | `website/` | The same site as ordinary web files: `index.html`, `css/styles.css`, `js/main.js`, `img/` (10 photos as WebP) and `models/kits.js` (the three 3D kit models). | Hosting the site anywhere (GitHub Pages, Netlify), or editing it in VS Code. Open `website/index.html` to view it. |
 | `build_single_file.py` | Rebuilds the single file from `website/` (section 13). | Run it after any edit in `website/`. |
 | `HANDOFF.md` | This file. | Instructions, to-do list, and build notes. |
@@ -23,7 +23,7 @@ Yes. Since 19 October 2026 the Gemini app can export an interactive app made in 
 
 Four things to know before you rely on it:
 
-1. **Paste the code yourself instead of asking Gemini to rebuild the site.** Gemini would have to retype about 1.4 MB of code, including the embedded photos and 3D models, and would drop or change parts of it. Canvas lets you edit its code directly (**Code** view, auto-saved), so you paste the finished file there and use Gemini only for the export.
+1. **Paste the code yourself instead of asking Gemini to rebuild the site.** Gemini would have to retype about 2.6 MB of code, including the embedded photos and 3D models, and would drop or change parts of it. Canvas lets you edit its code directly (**Code** view, auto-saved), so you paste the finished file there and use Gemini only for the export.
 2. **The whole website becomes one interactive block on one Google Sites page.** Navigation between the 15 pages happens inside that block, not through Google Sites' own menu. The rubric marks content, design and referencing, not which Google Sites tools were used, so this is fine. Make the block full width and about one screen tall.
 3. **The export makes a new site each time and Google does not say later edits sync.** Finish the to-do list in section 4 *before* you export. If you change something afterwards, paste the new code into Canvas, export again, publish the new draft and delete the old one.
 4. **Use a personal Google account.** The draft belongs to whoever exports it. Share it with the team as editors and publish it so anyone can view it.
@@ -57,9 +57,8 @@ These items need information only the team has. Each is marked on the site in or
 | Prototype | **How it was built:** materials and sizes of the cardboard kits, how the guide and trip record were mocked up, and 3–6 photos of the real prototype. Photos are easiest to build into the code before exporting; after exporting, they can only go on the Google Sites page below the website block (**Insert → Images**). | `data-todo="prototype-build"` |
 | Prototype | **Table 7 results:** the Result and Change made columns for all five tests, then two or three sentences under **Results and changes**. Without results, the prototype counts as a model rather than a tested prototype. | `data-todo="test-results"` |
 | Prototype | **Figure 11 note:** which tool made the concept renders. | `data-todo="figure-11-tool"` |
-| Detailed design | **Figure 9 note:** the source of the Garmin product photo (page title, URL, "Copyright Garmin"), or swap in your own photo. | `data-todo="figure-9-source"` |
 | Team | **Table 13:** each member's website contribution. List contributing members only; a non-contributing member must not be listed. | `data-todo="team-contributions"` |
-| Appendices | **A** group charter link, **B** meeting minutes, **C** full test results, **D** cost workings (the $420 materials, setup and delivery allowance and the $175 accessory bundle, with a source per price). | `data-todo="appendix-a"` … `appendix-d` |
+| Appendices | **A** group charter link, **B** meeting minutes, **C** full test results, **D** cost workings (the $175 bundle is now itemised; add the pouch and cable product and the breakdown of the $420 materials, setup and delivery allowance). | `data-todo="appendix-a"` … `appendix-d` |
 | Appendices | **E** the AI-use statement, with reasons for using AI and screenshots of prompts and outputs. The rubric only gives full marks for the statement when it includes reasons and screenshots. | `data-todo="appendix-e"` |
 
 When you replace a placeholder, delete its `class="todo"` or `class="ph"` and its `data-todo="…"` too, so it stops showing in orange or in a dashed box. For example:
@@ -99,7 +98,7 @@ Paste this into Gemini with this file attached, **after** you have pasted the co
 
 ```text
 I'm publishing my university team's finished website to Google Sites using Canvas and Export → Google Sites.
-The website code is already in this Canvas. I pasted it in myself. It is about 1.4 MB because photos and 3D models are embedded as base64.
+The website code is already in this Canvas. I pasted it in myself. It is about 2.6 MB because photos and 3D models are embedded as base64.
 The attached HANDOFF.md describes the site, the to-do items and the writing rules.
 
 Rules for helping me:
@@ -182,9 +181,10 @@ All photos are from the EWB Challenge 2026 design brief. They are copyright Engi
 | `signage.webp` | Problem banner; Figure 6 | EWB brief, p. 31. |
 | `map.webp` | Figure 2 | EWB brief, p. 14. |
 | `safari-camp.webp` | Figure 4 | EWB brief, p. 19. |
-| `messenger.webp` | Figure 9 | Garmin product photo from the team's slides. **Needs its source** (section 4). |
-| `render-t1/t2/t3.webp` | Figure 11 carousel | Team's final presentation, slide 13. **Name the tool that made them** (section 4). |
-| 3D models (in `models/kits.js`) | Figure 10 | Demonstration models made with AI assistance (cited as Anthropic, 2026). Not to scale. |
+| `messenger.webp` | Figure 9 | Garmin product photo from the team's final presentation (slide 10), cited as Garmin (n.d.-b). |
+| `render-t1/t2/t3.webp` | Figure 11 carousel | Team's final presentation, slide 13, re-extracted at full resolution with transparent backgrounds. **Name the tool that made them** (section 4). |
+| `ideas-map.webp`, `concept-kit-2a.webp` | Appendix F | Task 2A presentation, slides 7 and 11. The kit concept was made with Microsoft Copilot (credited on the slide). |
+| 3D models (in `models/kits.js`) | Figure 10 | Built to the published sizes of the costed products (ACR C-Strobe, Cygnett GO 10K, Garmin inReach Messenger, Fox 40 Micro, A6 cards), with AI assistance (cited as Anthropic, 2026). The pouch is representative. |
 | Google Map | Figure 3 | Live Google Maps embed (cited as Google, n.d.). |
 
 Free extras (Wikimedia Commons, freely licensed; use **Use this file** on each page for the exact credit):
@@ -237,7 +237,7 @@ The first column also counts every table, figure label and *Note.* line. Excludi
   - Figures 5 and 8 are inline SVG.
   - Figure 12 (timeline) and Figure 13 (cost chart) are drawn by `main.js` from small data arrays near the bottom of the file. Edit the numbers there.
   - Tables are plain HTML `<table class="t">`.
-- **3D viewer.** It uses Google's [model-viewer](https://modelviewer.dev/) 4.1.0 from jsDelivr, so it needs the internet. The three kit models are GLB files stored as base64 in `window.KIT_GLB` (in `models/kits.js`, or the last `<script>` of the single file), keyed `"1"`, `"2"` and `"3"`. To use a phone scan of the cardboard prototype, export it as `.glb`, base64-encode it, and replace the `"3"` string. Hotspot positions are in the `HOT` object at the top of `main.js`.
+- **3D viewer.** It uses Google's [model-viewer](https://modelviewer.dev/) 4.1.0 from jsDelivr, so it needs the internet. The three kit models are GLB files stored as base64 in `window.KIT_GLB` (in `models/kits.js`, or the last `<script>` of the single file), keyed `"1"`, `"2"` and `"3"`. The models are generated by `tools/kit-builder/`: run `python tools/kit-builder/save_server.py`, open http://127.0.0.1:8772/, then run `exportAll()` in the browser console. It saves `tier1–3.glb` and the hotspot positions to `tools/kit-builder/out/`; base64-encode the GLBs into `models/kits.js` and copy the positions into the `KIT`/`HOT` objects at the top of `main.js`. Every product is built to its published size, so edit the dimensions there if the team changes a product. To use a phone scan of the cardboard prototype instead, export it as `.glb`, base64-encode it, and replace the `"3"` string.
 - **External resources.**
   - Google Fonts (falls back to system fonts if blocked).
   - jsDelivr for model-viewer (falls back to a message, and the renders still show).
